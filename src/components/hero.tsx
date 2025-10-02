@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-// Import your profile image here - replace with your actual image path
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import profileImage from "../assets/photo.jpg";
 
 const containerVariants = {
