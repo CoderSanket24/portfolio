@@ -128,7 +128,7 @@ const Projects: React.FC = () => {
           layout 
           className="grid md:grid-cols-2 xl:grid-cols-3 gap-8"
         >
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.title}

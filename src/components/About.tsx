@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const skills: string[] = ["React", "TypeScript", "Python", "Django", "YOLOv8", "PostgreSQL", "JavaScript", "Next.js", "Node.js"];
+const skills: string[] = ["React", "TypeScript", "Python", "FastAPI", "YOLOv8", "PostgreSQL", "JavaScript", "Express.js", "Node.js"];
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -118,11 +118,11 @@ const About: React.FC = () => {
             {/* Stats */}
             <div className="mt-8 grid grid-cols-3 gap-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-blue-400">15+</div>
+                <div className="text-2xl font-bold text-blue-400">10+</div>
                 <div className="text-sm text-gray-400">Projects</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-purple-400">3+</div>
+                <div className="text-2xl font-bold text-purple-400">1+</div>
                 <div className="text-sm text-gray-400">Years Learning</div>
               </div>
               <div className="text-center">

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+// Import your profile image here - replace with your actual image path
+import profileImage from "../assets/photo.jpg";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -24,12 +26,17 @@ const buttonVariants = {
 };
 
 const Hero: React.FC = () => {
+  const [imageError, setImageError] = useState(false);
+
+  // Replace this with your actual image path
+  const profileImageUrl = profileImage; // Change this to your image path
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 text-white flex items-center justify-center py-20 px-4 relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-grid-pattern opacity-20" />
-        
+
         {/* Subtle Floating Orbs - More Consistent with Other Sections */}
         <motion.div
           className="absolute top-20 left-20 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"
@@ -68,32 +75,43 @@ const Hero: React.FC = () => {
           {/* Profile Image */}
           <motion.div
             variants={itemVariants}
-            className="mb-8 w-32 h-32 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1 float-animation mx-auto"
+            className="mb-8 w-32 h-32 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1 float-animation mx-auto group"
           >
-            <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center text-4xl font-bold">
-              S
+            <div className="w-full h-full rounded-full overflow-hidden bg-gray-800 flex items-center justify-center relative">
+              {!imageError ? (
+                <img
+                  src={profileImageUrl}
+                  alt="Sanket Botre"
+                  className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-300"
+                  onError={() => setImageError(true)}
+                />
+              ) : (
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-4xl font-bold text-white">
+                  S
+                </div>
+              )}
             </div>
           </motion.div>
 
-          <motion.h1 
-            variants={itemVariants} 
+          <motion.h1
+            variants={itemVariants}
             className="text-5xl md:text-7xl font-extrabold mb-6"
           >
             Hi, I'm <span className="gradient-text-blue">Sanket</span> 👋
           </motion.h1>
-          
-          <motion.p 
-            variants={itemVariants} 
+
+          <motion.p
+            variants={itemVariants}
             className="text-xl md:text-2xl text-gray-300 mb-4 max-w-2xl mx-auto leading-relaxed"
           >
             Student | Developer | AI/ML Enthusiast
           </motion.p>
-          
-          <motion.p 
-            variants={itemVariants} 
+
+          <motion.p
+            variants={itemVariants}
             className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Passionate about building innovative solutions with cutting-edge technology. 
+            Passionate about building innovative solutions with cutting-edge technology.
             Let's create something amazing together!
           </motion.p>
 
@@ -119,29 +137,29 @@ const Hero: React.FC = () => {
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex space-x-6 justify-center">
-            <motion.a 
-              href="#" 
+            <motion.a
+              href="https://github.com/CoderSanket24"
               className="text-gray-400 hover:text-blue-400 transition-colors duration-300 p-3 rounded-full hover:bg-white/10"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               <FaGithub size={28} />
             </motion.a>
-            <motion.a 
-              href="#" 
+            <motion.a
+              href="www.linkedin.com/in/sanket-botre-568a44320"
               className="text-gray-400 hover:text-blue-400 transition-colors duration-300 p-3 rounded-full hover:bg-white/10"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               <FaLinkedin size={28} />
             </motion.a>
-            <motion.a 
-              href="#" 
+            <motion.a
+              href="https://www.instagram.com/sanket_botre_24?igsh=OWFxd3RnaGNoMTJl"
               className="text-gray-400 hover:text-blue-400 transition-colors duration-300 p-3 rounded-full hover:bg-white/10"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <FaTwitter size={28} />
+              <FaInstagram size={28} />
             </motion.a>
           </motion.div>
         </div>
