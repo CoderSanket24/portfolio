@@ -4,8 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import wildlifeImage from "../assets/image.png";
 import spaceGameImage from "../assets/spacegame.png";
-import potholeImage from "../assets/photo.jpg";
-import agriChatbotImage from "../assets/urlshort.jpeg";
 
 interface Project {
   title: string;
