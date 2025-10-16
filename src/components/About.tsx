@@ -43,13 +43,13 @@ const About: React.FC = () => {
         className="max-w-6xl mx-auto"
       >
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             variants={containerVariants}
             className="text-5xl md:text-6xl font-bold mb-6"
           >
             About <span className="gradient-text-blue">Me</span>
           </motion.h2>
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"
           />
@@ -63,13 +63,13 @@ const About: React.FC = () => {
           >
             <h3 className="text-2xl font-semibold mb-6 text-blue-400">Who I Am</h3>
             <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              I'm Sanket, a passionate student and developer who thrives on building innovative solutions. 
-              My journey spans across <span className="text-blue-400 font-semibold">Web Development</span>, 
-              <span className="text-purple-400 font-semibold"> AI/ML</span>, and 
-              <span className="text-green-400 font-semibold"> Robotics</span>.
+              I'm Sanket, a passionate student and developer who thrives on building innovative solutions.
+              My journey spans across <span className="text-blue-400 font-semibold">Web Development</span>,
+              <span className="text-purple-400 font-semibold"> AI/ML</span>, and
+              <span className="text-green-400 font-semibold"> Game Development</span>.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              I believe in the power of technology to solve real-world problems and create meaningful impact. 
+              I believe in the power of technology to solve real-world problems and create meaningful impact.
               Every project I work on is an opportunity to learn something new and push the boundaries of what's possible.
             </p>
             <div className="flex items-center space-x-4">
@@ -99,8 +99,8 @@ const About: React.FC = () => {
                 <motion.div
                   key={i}
                   variants={skillItemVariants}
-                  whileHover={{ 
-                    scale: 1.05, 
+                  whileHover={{
+                    scale: 1.05,
                     y: -5,
                     boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
                   }}
@@ -156,10 +156,10 @@ const About: React.FC = () => {
 
           <div className="glass-dark p-6 rounded-2xl text-center group hover:scale-105 transition-transform duration-300">
             <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
-              <span className="text-2xl">⚙️</span>
+              <span className="text-2xl">🎮</span>
             </div>
-            <h4 className="text-xl font-semibold mb-2 text-green-400">Robotics</h4>
-            <p className="text-gray-400 text-sm">Creating autonomous systems and exploring the intersection of hardware and software</p>
+            <h4 className="text-xl font-semibold mb-2 text-green-400">Game Development</h4>
+            <p className="text-gray-400 text-sm">Creating engaging interactive experiences and games with smooth gameplay mechanics</p>
           </div>
         </motion.div>
       </motion.div>

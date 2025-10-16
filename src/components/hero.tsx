@@ -145,7 +145,7 @@ const Hero: React.FC = () => {
               <FaGithub size={28} />
             </motion.a>
             <motion.a
-              href="www.linkedin.com/in/sanket-botre-568a44320"
+              href="https://www.linkedin.com/in/sanket-botre-568a44320"
               className="text-gray-400 hover:text-blue-400 transition-colors duration-300 p-3 rounded-full hover:bg-white/10"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -162,45 +162,6 @@ const Hero: React.FC = () => {
             </motion.a>
           </motion.div>
         </div>
-
-        {/* Quick Stats Section - Matching Other Sections */}
-        <motion.div
-          variants={containerVariants}
-          className="mt-12 grid md:grid-cols-3 gap-6"
-        >
-          <motion.div
-            variants={itemVariants}
-            className="glass-dark p-6 rounded-2xl text-center group hover:scale-105 transition-transform duration-300"
-          >
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
-              <span className="text-2xl">💻</span>
-            </div>
-            <h3 className="text-xl font-semibold mb-2 text-blue-400">Web Development</h3>
-            <p className="text-gray-400 text-sm">Building modern, responsive applications</p>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="glass-dark p-6 rounded-2xl text-center group hover:scale-105 transition-transform duration-300"
-          >
-            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
-              <span className="text-2xl">🤖</span>
-            </div>
-            <h3 className="text-xl font-semibold mb-2 text-purple-400">AI/ML</h3>
-            <p className="text-gray-400 text-sm">Creating intelligent solutions</p>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="glass-dark p-6 rounded-2xl text-center group hover:scale-105 transition-transform duration-300"
-          >
-            <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300">
-              <span className="text-2xl">⚙️</span>
-            </div>
-            <h3 className="text-xl font-semibold mb-2 text-green-400">Robotics</h3>
-            <p className="text-gray-400 text-sm">Exploring hardware-software integration</p>
-          </motion.div>
-        </motion.div>
 
         {/* Scroll Indicator */}
         <motion.div
@@ -225,12 +186,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
-// Add this to your index.css or a global stylesheet
-/*
-.bg-grid-pattern {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-*/

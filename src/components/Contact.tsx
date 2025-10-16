@@ -175,31 +175,7 @@ const Contact: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="text-center mt-16"
-        >
-          <div className="glass-dark p-6 rounded-2xl max-w-2xl mx-auto">
-            <p className="text-gray-400 mb-4">
-              Prefer a quick chat? I'm always available for a coffee ☕ or virtual meeting!
-            </p>
-            <div className="flex justify-center space-x-4">
-              <motion.a
-                href="https://calendly.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 border border-blue-500 text-blue-400 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300"
-              >
-                Schedule a Call
-              </motion.a>
-            </div>
-          </div>
-        </motion.div>
+
       </motion.div>
     </div>
   );

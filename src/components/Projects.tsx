@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import ProjectCard from "./ui/ProjectCard";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-import docuflowImage from "../assets/image.png";
+import wildlifeImage from "../assets/image.png";
+import spaceGameImage from "../assets/spacegame.png";
 import potholeImage from "../assets/photo.jpg";
 import agriChatbotImage from "../assets/urlshort.jpeg";
 
@@ -17,18 +18,26 @@ interface Project {
 
 const allProjects: Project[] = [
   {
-    title: "DocuFlow",
-    desc: "A sleek and efficient document management system built with React, Django, and PostgreSQL.",
+    title: "WildGuard Sanctuary Database Management System",
+    desc: "A comprehensive database management system for wildlife sanctuaries to track animals, manage conservation efforts, and monitor ecosystem health.",
     link: "#",
-    image: docuflowImage,
-    tags: ["React", "Django", "PostgreSQL"],
+    image: wildlifeImage,
+    tags: ["MySQL", "PHP", "Bootstrap", "Database Design"],
     category: "Web Development",
+  },
+  {
+    title: "Space Shooter Game",
+    desc: "An engaging 2D space shooter game with dynamic enemies, power-ups, and smooth gameplay mechanics built using Python and Pygame.",
+    link: "#",
+    image: spaceGameImage,
+    tags: ["Python", "Pygame", "Game Development", "OOP"],
+    category: "Game Development",
   },
   {
     title: "Pothole Detection",
     desc: "An AI-powered solution using YOLOv8 to detect potholes from road images in real-time.",
     link: "#",
-    image: potholeImage,
+    image: "",
     tags: ["YOLOv8", "Python", "Computer Vision"],
     category: "AI/ML",
   },
@@ -36,29 +45,13 @@ const allProjects: Project[] = [
     title: "Agri Chatbot",
     desc: "A voice-enabled, multilingual advisory system to help farmers with their queries.",
     link: "#",
-    image: agriChatbotImage,
+    image: "",
     tags: ["NLP", "React", "Firebase"],
-    category: "AI/ML",
-  },
-  {
-    title: "Portfolio Website",
-    desc: "A personal portfolio website to showcase my projects and skills, built with React and Tailwind CSS.",
-    link: "#",
-    image: docuflowImage, // Reusing image
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
-    category: "Web Development",
-  },
-  {
-    title: "Object Detection API",
-    desc: "A RESTful API for object detection in images, powered by a custom-trained model.",
-    link: "#",
-    image: potholeImage, // Reusing image
-    tags: ["Python", "FastAPI", "Docker"],
     category: "AI/ML",
   },
 ];
 
-const categories = ["All", "Web Development", "AI/ML"];
+const categories = ["All", "Web Development", "AI/ML", "Game Development"];
 
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -72,7 +65,7 @@ const Projects: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -80,7 +73,7 @@ const Projects: React.FC = () => {
           >
             My <span className="gradient-text-blue">Projects</span>
           </motion.h2>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -97,7 +90,7 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Filter Buttons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -112,11 +105,10 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                activeFilter === cat
-                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                  : "glass-dark text-gray-300 hover:text-white hover:border-blue-500"
-              }`}
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${activeFilter === cat
+                ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                : "glass-dark text-gray-300 hover:text-white hover:border-blue-500"
+                }`}
             >
               {cat}
             </motion.button>
@@ -124,8 +116,8 @@ const Projects: React.FC = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div 
-          layout 
+        <motion.div
+          layout
           className="grid md:grid-cols-2 xl:grid-cols-3 gap-8"
         >
           <AnimatePresence>
@@ -163,7 +155,7 @@ const Projects: React.FC = () => {
               Check out my GitHub for more projects and contributions to open source
             </p>
             <motion.a
-              href="https://github.com"
+              href="https://github.com/CoderSanket24"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
