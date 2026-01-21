@@ -14,9 +14,9 @@ const App: React.FC = () => {
       <ScrollIndicator />
       <SplashCursor />
       {/* Navbar */}
-      <Navbar/>
+      <Navbar />
       {/* Sections */}
-      <section id="hero" className="pt-20">
+      <section id="hero" className="pt-24">
         <Hero />
       </section>
       <section id="about">

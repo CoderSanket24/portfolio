@@ -18,8 +18,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, desc, link, image, tag
   return (
     <motion.div
       variants={cardVariants}
-      whileHover={{ 
-        y: -10, 
+      whileHover={{
+        y: -10,
         boxShadow: "0px 25px 50px rgba(59, 130, 246, 0.15)",
         scale: 1.02
       }}
@@ -27,13 +27,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, desc, link, image, tag
     >
       {/* Image Container */}
       <div className="relative overflow-hidden">
-        <motion.img 
-          src={image} 
-          alt={title} 
-          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
+        {image ? (
+          <>
+            <motion.img
+              src={image}
+              alt={title}
+              className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </>
+        ) : (
+          <div className="w-full h-48 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center">
+            <div className="text-6xl opacity-30">🚀</div>
+          </div>
+        )}
+
         {/* Overlay Button */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -55,16 +63,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, desc, link, image, tag
 
       {/* Content */}
       <div className="p-6 flex-grow flex flex-col">
-        <motion.h3 
+        <motion.h3
           className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300"
         >
           {title}
         </motion.h3>
-        
+
         <p className="text-gray-400 mb-4 flex-grow leading-relaxed text-sm">
           {desc}
         </p>
-        
+
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.map((tag, i) => (
@@ -77,7 +85,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, desc, link, image, tag
             </motion.span>
           ))}
         </div>
-        
+
         {/* Footer */}
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-700/50">
           <motion.a
@@ -87,14 +95,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, desc, link, image, tag
             whileHover={{ x: 5 }}
             className="text-blue-400 hover:text-blue-300 font-semibold text-sm flex items-center gap-2 group/link"
           >
-            View Project 
+            View Project
             <motion.span
               className="group-hover/link:translate-x-1 transition-transform duration-300"
             >
               →
             </motion.span>
           </motion.a>
-          
+
           <div className="flex space-x-2">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
             <span className="text-xs text-gray-500">Live</span>
