@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import profileImage from "../assets/photo.jpg";
+import MagneticButton from "./MagneticButton";
+import ParticleBackground from "./ParticleBackground";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -16,14 +18,6 @@ const itemVariants = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
 };
 
-const buttonVariants = {
-  hover: {
-    scale: 1.05,
-    transition: { duration: 0.3 },
-  },
-  tap: { scale: 0.95 },
-};
-
 const Hero: React.FC = () => {
   const [imageError, setImageError] = useState(false);
 
@@ -32,6 +26,9 @@ const Hero: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 text-white flex items-center justify-center py-20 px-4 relative overflow-hidden">
+      {/* Particle Background */}
+      <ParticleBackground />
+      
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
@@ -136,30 +133,18 @@ const Hero: React.FC = () => {
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
-            <motion.a
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              href="#projects"
-              className="btn-primary px-8 py-4 text-white rounded-full font-bold text-lg transition-all duration-300 relative overflow-hidden group"
-            >
-              <span className="relative z-10">View My Work</span>
+            <MagneticButton className="btn-primary px-8 py-4 text-white rounded-full font-bold text-lg transition-all duration-300 relative overflow-hidden group">
+              <a href="#projects" className="relative z-10">View My Work</a>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
                 initial={{ x: '-100%' }}
                 whileHover={{ x: '100%' }}
                 transition={{ duration: 0.6 }}
               />
-            </motion.a>
-            <motion.a
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              href="#contact"
-              className="px-8 py-4 border-2 border-cyan-500 text-cyan-400 rounded-full font-bold text-lg hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all duration-300 relative overflow-hidden group"
-            >
-              <span className="relative z-10">Get In Touch</span>
-            </motion.a>
+            </MagneticButton>
+            <MagneticButton className="px-8 py-4 border-2 border-cyan-500 text-cyan-400 rounded-full font-bold text-lg hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:border-transparent transition-all duration-300 relative overflow-hidden group">
+              <a href="#contact" className="relative z-10">Get In Touch</a>
+            </MagneticButton>
           </motion.div>
 
           {/* Enhanced Social Media Icons */}

@@ -448,3 +448,296 @@ body {
   background: rgba(6, 182, 212, 0.3);
   color: #ffffff;
 }
+
+
+/* ============================================
+   3D TRANSFORM UTILITIES
+   ============================================ */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* ============================================
+   ADVANCED HOVER EFFECTS
+   ============================================ */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3);
+}
+
+/* ============================================
+   GLOWING TEXT EFFECT
+   ============================================ */
+@keyframes glow-text {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.5),
+                 0 0 20px rgba(6, 182, 212, 0.3),
+                 0 0 30px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.8),
+                 0 0 30px rgba(6, 182, 212, 0.5),
+                 0 0 40px rgba(6, 182, 212, 0.3);
+  }
+}
+
+.glow-text {
+  animation: glow-text 3s ease-in-out infinite;
+}
+
+/* ============================================
+   PARTICLE EFFECTS
+   ============================================ */
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-10px);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.7;
+  }
+}
+
+.particle {
+  animation: particle-float 4s ease-in-out infinite;
+}
+
+/* ============================================
+   NEON BORDER EFFECT
+   ============================================ */
+@keyframes neon-border {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(6, 182, 212, 0.5),
+                0 0 10px rgba(6, 182, 212, 0.3),
+                inset 0 0 5px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.8),
+                0 0 20px rgba(6, 182, 212, 0.5),
+                inset 0 0 10px rgba(6, 182, 212, 0.3);
+  }
+}
+
+.neon-border {
+  animation: neon-border 2s ease-in-out infinite;
+}
+
+/* ============================================
+   TYPING ANIMATION
+   ============================================ */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.typing-animation {
+  overflow: hidden;
+  border-right: 2px solid #06b6d4;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+}
+
+/* ============================================
+   WAVE ANIMATION
+   ============================================ */
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30% {
+    transform: rotate(-10deg);
+  }
+  20%, 40% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+.wave {
+  animation: wave 2s ease-in-out infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+/* ============================================
+   BOUNCE ANIMATION
+   ============================================ */
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.bounce-in {
+  animation: bounce-in 0.6s ease-out;
+}
+
+/* ============================================
+   GRADIENT BORDER ANIMATION
+   ============================================ */
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-border {
+  background: linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6, #06b6d4);
+  background-size: 300% 300%;
+  animation: gradient-border 3s ease infinite;
+}
+
+/* ============================================
+   SCALE PULSE ANIMATION
+   ============================================ */
+@keyframes scale-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.scale-pulse {
+  animation: scale-pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   FADE IN UP ANIMATION
+   ============================================ */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+/* ============================================
+   ROTATE 3D ANIMATION
+   ============================================ */
+@keyframes rotate-3d {
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  50% {
+    transform: rotateY(180deg) rotateX(10deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(0deg);
+  }
+}
+
+.rotate-3d {
+  animation: rotate-3d 10s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* ============================================
+   SPOTLIGHT EFFECT
+   ============================================ */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   RIPPLE EFFECT
+   ============================================ */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.5);
+  transform: translate(-50%, -50%);
+  animation: ripple 0.6s ease-out;
+}

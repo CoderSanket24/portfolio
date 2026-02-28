@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface ProjectCardProps {
   title: string;
@@ -15,18 +15,54 @@ const cardVariants = {
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, desc, link, image, tags }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['10deg', '-10deg']);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-10deg', '10deg']);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
     <motion.div
       variants={cardVariants}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: 'preserve-3d',
+      }}
       whileHover={{
         y: -10,
-        boxShadow: "0px 25px 50px rgba(59, 130, 246, 0.15)",
+        boxShadow: "0px 25px 50px rgba(59, 130, 246, 0.25)",
         scale: 1.02
       }}
       className="group glass-dark rounded-3xl overflow-hidden flex flex-col h-full border border-gray-700/50 hover:border-blue-500/50 transition-all duration-500"
     >
       {/* Image Container */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden" style={{ transform: 'translateZ(75px)' }}>
         {image ? (
           <>
             <motion.img
@@ -62,7 +98,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, desc, link, image, tag
       </div>
 
       {/* Content */}
-      <div className="p-6 flex-grow flex flex-col">
+      <div className="p-6 flex-grow flex flex-col" style={{ transform: 'translateZ(50px)' }}>
         <motion.h3
           className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300"
         >

@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
-const skills: string[] = ["React", "TypeScript", "Python", "FastAPI", "YOLOv8", "PostgreSQL", "JavaScript", "Express.js", "Node.js"];
+import AnimatedSkills from "./AnimatedSkills";
+import Scene3DSelector from "./3D/Scene3DSelector";
+import TextReveal from "./TextReveal";
+import InteractiveCard from "./InteractiveCard";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -13,21 +15,6 @@ const containerVariants = {
       duration: 0.8,
     },
   },
-};
-
-const skillsContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const skillItemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
 };
 
 const About: React.FC = () => {
@@ -55,84 +42,60 @@ const About: React.FC = () => {
           />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Left Column - About Text */}
-          <motion.div
-            variants={containerVariants}
-            className="glass-dark p-8 rounded-3xl"
-          >
-            <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Who I Am</h3>
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              I'm Sanket, a passionate student and developer who thrives on building innovative solutions.
-              My journey spans across <span className="text-cyan-400 font-semibold">Web Development</span>,
-              <span className="text-purple-400 font-semibold"> AI/ML</span>, and
-              <span className="text-pink-400 font-semibold"> Game Development</span>.
-            </p>
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              I believe in the power of technology to solve real-world problems and create meaningful impact.
-              Every project I work on is an opportunity to learn something new and push the boundaries of what's possible.
-            </p>
-            <div className="flex items-center space-x-4 p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20">
-              <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center pulse-glow">
-                <span className="text-xl font-bold">🚀</span>
-              </div>
-              <div>
-                <p className="font-semibold text-cyan-400">Always Learning</p>
-                <p className="text-gray-400 text-sm">Staying curious and exploring new technologies</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Skills */}
-          <motion.div
-            variants={containerVariants}
-            className="glass-dark p-8 rounded-3xl"
-          >
-            <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">My Skills</h3>
+          <InteractiveCard>
             <motion.div
-              variants={skillsContainerVariants}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              className="grid grid-cols-2 sm:grid-cols-3 gap-4"
+              variants={containerVariants}
+              className="glass-dark p-8 rounded-3xl"
             >
-              {skills.map((skill, i) => (
-                <motion.div
-                  key={i}
-                  variants={skillItemVariants}
-                  whileHover={{
-                    scale: 1.08,
-                    y: -8,
-                    boxShadow: "0 15px 30px rgba(6, 182, 212, 0.4)"
-                  }}
-                  className="group relative"
-                >
-                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-700/80 p-4 rounded-xl border border-gray-600 hover:border-cyan-500 hover:bg-gradient-to-br hover:from-cyan-500/10 hover:to-blue-500/10 transition-all duration-300 cursor-pointer relative overflow-hidden">
-                    <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="text-sm font-medium text-center block group-hover:text-cyan-400 transition-colors duration-300 relative z-10">
-                      {skill}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
+              <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Who I Am</h3>
+              <TextReveal 
+                text="I'm Sanket, a passionate student and developer who thrives on building innovative solutions."
+                className="text-lg text-gray-300 leading-relaxed mb-6"
+              />
+              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                My journey spans across <span className="text-cyan-400 font-semibold">Web Development</span>,
+                <span className="text-purple-400 font-semibold"> AI/ML</span>, and
+                <span className="text-pink-400 font-semibold"> Game Development</span>.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                I believe in the power of technology to solve real-world problems and create meaningful impact.
+                Every project I work on is an opportunity to learn something new and push the boundaries of what's possible.
+              </p>
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                className="flex items-center space-x-4 p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20"
+              >
+                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center pulse-glow">
+                  <span className="text-xl font-bold">🚀</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-cyan-400">Always Learning</p>
+                  <p className="text-gray-400 text-sm">Staying curious and exploring new technologies</p>
+                </div>
+              </motion.div>
             </motion.div>
+          </InteractiveCard>
 
-            {/* Stats */}
-            <div className="mt-8 grid grid-cols-3 gap-4">
-              <div className="text-center p-3 rounded-xl bg-cyan-500/5 border border-cyan-500/20 hover:bg-cyan-500/10 transition-all duration-300">
-                <div className="text-2xl font-bold text-cyan-400">10+</div>
-                <div className="text-sm text-gray-400">Projects</div>
-              </div>
-              <div className="text-center p-3 rounded-xl bg-purple-500/5 border border-purple-500/20 hover:bg-purple-500/10 transition-all duration-300">
-                <div className="text-2xl font-bold text-purple-400">1+</div>
-                <div className="text-sm text-gray-400">Years Learning</div>
-              </div>
-              <div className="text-center p-3 rounded-xl bg-pink-500/5 border border-pink-500/20 hover:bg-pink-500/10 transition-all duration-300">
-                <div className="text-2xl font-bold text-pink-400">∞</div>
-                <div className="text-sm text-gray-400">Curiosity</div>
-              </div>
-            </div>
+          {/* Right Column - 3D Scene */}
+          <motion.div
+            variants={containerVariants}
+            className="glass-dark p-8 rounded-3xl"
+          >
+            <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent text-center">My Tech Universe</h3>
+            <Scene3DSelector />
           </motion.div>
         </div>
+
+        {/* Skills Section */}
+        <motion.div
+          variants={containerVariants}
+          className="mb-16"
+        >
+          <h3 className="text-3xl font-semibold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">My Skills</h3>
+          <AnimatedSkills />
+        </motion.div>
 
         {/* Bottom Section - What I Do */}
         <motion.div

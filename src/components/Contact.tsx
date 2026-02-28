@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaGithub, FaPaperPlane } from "react-icons/fa";
+import MagneticButton from "./MagneticButton";
+import InteractiveCard from "./InteractiveCard";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -14,6 +16,23 @@ const containerVariants = {
 
 const Contact: React.FC = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Add your form submission logic here
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 text-white flex items-center justify-center py-20 px-4">
@@ -46,12 +65,13 @@ const Contact: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="space-y-8"
-          >
+          <InteractiveCard>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="space-y-8"
+            >
             <div className="glass-dark p-8 rounded-3xl">
               <h3 className="text-2xl font-semibold mb-6 text-blue-400">Let's Connect</h3>
 
@@ -117,7 +137,8 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+            </motion.div>
+          </InteractiveCard>
 
           {/* Right Column - Contact Form */}
           <motion.div
@@ -128,48 +149,76 @@ const Contact: React.FC = () => {
             <div className="glass-dark p-8 rounded-3xl">
               <h3 className="text-2xl font-semibold mb-6 text-blue-400">Send a Message</h3>
 
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  <motion.div whileFocus={{ scale: 1.02 }}>
+                  <motion.div 
+                    animate={{ scale: focusedField === 'name' ? 1.02 : 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <input
                       type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedField('name')}
+                      onBlur={() => setFocusedField(null)}
                       placeholder="Your Name"
                       className="w-full p-4 bg-gray-800/50 rounded-xl border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white placeholder-gray-400"
                     />
                   </motion.div>
-                  <motion.div whileFocus={{ scale: 1.02 }}>
+                  <motion.div 
+                    animate={{ scale: focusedField === 'email' ? 1.02 : 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedField('email')}
+                      onBlur={() => setFocusedField(null)}
                       placeholder="Your Email"
                       className="w-full p-4 bg-gray-800/50 rounded-xl border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white placeholder-gray-400"
                     />
                   </motion.div>
                 </div>
 
-                <motion.div whileFocus={{ scale: 1.02 }}>
+                <motion.div 
+                  animate={{ scale: focusedField === 'subject' ? 1.02 : 1 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <input
                     type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField('subject')}
+                    onBlur={() => setFocusedField(null)}
                     placeholder="Subject"
                     className="w-full p-4 bg-gray-800/50 rounded-xl border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white placeholder-gray-400"
                   />
                 </motion.div>
 
-                <motion.div whileFocus={{ scale: 1.02 }}>
+                <motion.div 
+                  animate={{ scale: focusedField === 'message' ? 1.02 : 1 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField('message')}
+                    onBlur={() => setFocusedField(null)}
                     placeholder="Your Message"
                     rows={6}
                     className="w-full p-4 bg-gray-800/50 rounded-xl border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-white placeholder-gray-400 resize-none"
                   />
                 </motion.div>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  type="submit"
-                  className="w-full btn-primary p-4 rounded-xl font-bold text-lg transition-all duration-300"
-                >
-                  Send Message 🚀
-                </motion.button>
+                <MagneticButton className="w-full btn-primary p-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-2">
+                  <span>Send Message</span>
+                  <FaPaperPlane className="text-sm" />
+                </MagneticButton>
               </form>
             </div>
           </motion.div>
