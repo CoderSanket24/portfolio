@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface ProjectCardProps {
@@ -9,143 +9,188 @@ interface ProjectCardProps {
   tags: string[];
 }
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, desc, link, image, tags }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = useState(false);
+  const [shinePos, setShinePos] = useState({ x: 50, y: 50 });
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['10deg', '-10deg']);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-10deg', '10deg']);
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 22 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 22 });
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["14deg", "-14deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-14deg", "14deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-
-    x.set(xPct);
-    y.set(yPct);
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    x.set(px - 0.5);
+    y.set(py - 0.5);
+    setShinePos({ x: px * 100, y: py * 100 });
   };
 
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
+    setHovered(false);
   };
 
   return (
-    <motion.div
-      variants={cardVariants}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: 'preserve-3d',
-      }}
-      whileHover={{
-        y: -10,
-        boxShadow: "0px 25px 50px rgba(59, 130, 246, 0.25)",
-        scale: 1.02
-      }}
-      className="group glass-dark rounded-3xl overflow-hidden flex flex-col h-full border border-gray-700/50 hover:border-blue-500/50 transition-all duration-500"
-    >
-      {/* Image Container */}
-      <div className="relative overflow-hidden" style={{ transform: 'translateZ(75px)' }}>
-        {image ? (
-          <>
-            <motion.img
-              src={image}
-              alt={title}
-              className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </>
-        ) : (
-          <div className="w-full h-48 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center">
-            <div className="text-6xl opacity-30">🚀</div>
-          </div>
-        )}
-
-        {/* Overlay Button */}
+    <div className="perspective-2000 w-full h-full" style={{ perspective: "1200px" }}>
+      <motion.div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={handleMouseLeave}
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        className="group relative w-full h-full rounded-3xl cursor-pointer"
+      >
+        {/* Glowing gradient border — only on hover */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileHover={{ opacity: 1, scale: 1 }}
-          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+          className="absolute -inset-[1px] rounded-3xl"
+          animate={{ opacity: hovered ? 1 : 0 }}
+          transition={{ duration: 0.4 }}
+          style={{
+            background: "linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6, #ec4899)",
+            filter: "blur(1px)",
+          }}
+        />
+
+        {/* Card body */}
+        <div
+          className="relative flex flex-col h-full rounded-3xl overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, rgba(2,8,23,0.93) 0%, rgba(10,15,40,0.88) 100%)",
+            backdropFilter: "blur(24px)",
+            border: hovered ? "1px solid transparent" : "1px solid rgba(255,255,255,0.07)",
+          }}
         >
-          <motion.a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-4 py-2 rounded-full font-semibold hover:bg-white/30 transition-all duration-300"
-          >
-            View Project
-          </motion.a>
-        </motion.div>
-      </div>
+          {/* Mouse-tracked radial shine */}
+          <div
+            className="absolute inset-0 z-10 pointer-events-none rounded-3xl transition-opacity duration-300"
+            style={{
+              opacity: hovered ? 1 : 0,
+              background: `radial-gradient(circle at ${shinePos.x}% ${shinePos.y}%, rgba(255,255,255,0.06) 0%, transparent 55%)`,
+            }}
+          />
 
-      {/* Content */}
-      <div className="p-6 flex-grow flex flex-col" style={{ transform: 'translateZ(50px)' }}>
-        <motion.h3
-          className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300"
-        >
-          {title}
-        </motion.h3>
+          {/* ── Image ── */}
+          <div className="relative overflow-hidden" style={{ transform: "translateZ(35px)" }}>
+            {image ? (
+              <>
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020817] via-transparent to-transparent" />
+              </>
+            ) : (
+              <div
+                className="w-full h-52 flex items-center justify-center relative overflow-hidden"
+                style={{
+                  background: "linear-gradient(135deg, rgba(6,182,212,0.12), rgba(59,130,246,0.08), rgba(139,92,246,0.12))",
+                }}
+              >
+                <div className="absolute inset-0 bg-grid-pattern opacity-25" />
+                <motion.div
+                  className="text-7xl opacity-20 select-none"
+                  animate={{ rotate: [0, 4, -4, 0], scale: [1, 1.06, 1] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  🚀
+                </motion.div>
+              </div>
+            )}
 
-        <p className="text-gray-400 mb-4 flex-grow leading-relaxed text-sm">
-          {desc}
-        </p>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map((tag, i) => (
-            <motion.span
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              className="px-3 py-1 bg-gradient-to-r from-gray-700 to-gray-600 rounded-full text-xs font-medium text-gray-300 border border-gray-600 hover:border-blue-500/50 transition-all duration-300"
+            {/* Hover overlay button */}
+            <motion.div
+              className="absolute inset-0 flex items-center justify-center z-20"
+              animate={{ opacity: hovered ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
             >
-              {tag}
-            </motion.span>
-          ))}
-        </div>
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2.5 rounded-full font-semibold text-sm text-white border border-white/30 transition-transform duration-200 hover:scale-105"
+                style={{ background: "rgba(255,255,255,0.12)", backdropFilter: "blur(12px)" }}
+              >
+                View Project ↗
+              </a>
+            </motion.div>
+          </div>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-700/50">
-          <motion.a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ x: 5 }}
-            className="text-blue-400 hover:text-blue-300 font-semibold text-sm flex items-center gap-2 group/link"
-          >
-            View Project
-            <motion.span
-              className="group-hover/link:translate-x-1 transition-transform duration-300"
+          {/* ── Content ── */}
+          <div className="flex flex-col flex-grow p-6" style={{ transform: "translateZ(25px)" }}>
+            {/* Title */}
+            <h3
+              className="text-xl font-bold mb-3 leading-snug transition-colors duration-300"
+              style={{
+                fontFamily: "var(--font-heading)",
+                color: hovered ? "#67e8f9" : "#fff",
+              }}
             >
-              →
-            </motion.span>
-          </motion.a>
+              {title}
+            </h3>
 
-          <div className="flex space-x-2">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="text-xs text-gray-500">Live</span>
+            {/* Description */}
+            <p className="text-gray-400 mb-5 flex-grow leading-relaxed text-sm">
+              {desc}
+            </p>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mb-5">
+              {tags.map((tag, i) => (
+                <motion.span
+                  key={i}
+                  whileHover={{ scale: 1.07, y: -1 }}
+                  className="px-3 py-1 rounded-full text-xs font-medium border"
+                  style={{
+                    background: "rgba(6,182,212,0.08)",
+                    borderColor: "rgba(6,182,212,0.22)",
+                    color: "#67e8f9",
+                  }}
+                >
+                  {tag}
+                </motion.span>
+              ))}
+            </div>
+
+            {/* Footer row */}
+            <div
+              className="flex items-center justify-between pt-4"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+            >
+              <motion.a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ x: 4 }}
+                className="text-cyan-400 hover:text-cyan-300 font-semibold text-sm flex items-center gap-1.5 transition-colors duration-300"
+              >
+                View Project
+                <motion.span
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  →
+                </motion.span>
+              </motion.a>
+
+              <div className="flex items-center gap-1.5">
+                <div
+                  className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
+                  style={{ boxShadow: "0 0 6px rgba(52,211,153,0.9)" }}
+                />
+                <span className="text-xs text-gray-500 font-medium">Active</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
