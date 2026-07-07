@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import ProjectCard from "./ui/ProjectCard";
 import { motion } from "framer-motion";
 import { FaGithub, FaChevronLeft, FaChevronRight, FaPause, FaPlay } from "react-icons/fa";
-import wildlifeImage from "../assets/image.png";
+import wildlifeImage from "../assets/wildlife.png";
 import spaceGameImage from "../assets/spacegame.png";
 
 interface Project {
