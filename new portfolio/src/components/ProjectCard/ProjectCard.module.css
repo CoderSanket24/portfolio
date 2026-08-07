@@ -1,0 +1,116 @@
+/* Effect #3 — hover lift + copper border-left transition, 150ms ease */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--steel-faint);
+  border-left: 3px solid var(--steel-faint);
+  border-radius: var(--radius-sm);
+  /* No box-shadow, no glassmorphism */
+  transform: translateY(0);
+  transition:
+    transform 150ms ease,
+    border-left-color 150ms ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-left-color: var(--copper);
+}
+
+.inner {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  height: 100%;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.header {
+  flex: 0 0 auto;
+}
+
+.title {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-1);
+}
+
+.tagline {
+  font-size: 0.8125rem;
+  color: var(--steel);
+  line-height: 1.5;
+}
+
+/* ── Description ─────────────────────────────────────────────── */
+.description {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--steel);
+  flex: 1;
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--steel-faint);
+  flex-wrap: wrap;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.stackTag {
+  font-family: var(--font-head);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--steel);
+  border: 1px solid var(--steel-faint);
+  border-radius: var(--radius-sm);
+  padding: 1px 6px;
+}
+
+.stackTagMore {
+  font-family: var(--font-head);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--steel);
+  opacity: 0.6;
+  padding: 1px 4px;
+}
+
+.link {
+  font-family: var(--font-head);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--copper);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.link:hover,
+.link:focus-visible {
+  border-bottom-color: var(--copper);
+  outline: none;
+}
+
+.linkPlaceholder {
+  font-size: 0.75rem;
+  color: var(--steel);
+  opacity: 0.5;
+}

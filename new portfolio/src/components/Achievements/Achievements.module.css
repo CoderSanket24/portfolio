@@ -1,0 +1,172 @@
+.section {
+  padding: var(--space-16) var(--space-8);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.inner {
+  max-width: 900px;
+}
+
+.heading {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: var(--space-12);
+}
+
+/* ── Timeline ────────────────────────────────────────────────── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 0 var(--space-8);
+}
+
+/* ── Timeline column (marker + line) ────────────────────────── */
+.timelineCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.marker {
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--copper);
+  background: var(--paper);
+  border-radius: 0; /* square — consistent with drafting look */
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.line {
+  width: 1px;
+  flex: 1;
+  background: var(--steel-faint);
+  min-height: var(--space-12);
+  margin: var(--space-2) 0;
+}
+
+/* ── Entry content ───────────────────────────────────────────── */
+.entryContent {
+  padding-bottom: var(--space-12);
+}
+
+.entryHeader {
+  margin-bottom: var(--space-6);
+}
+
+.year {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-2);
+}
+
+.eventTitle {
+  font-family: var(--font-head);
+  font-size: clamp(1.1rem, 2vw, 1.375rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-1);
+}
+
+.org {
+  font-size: 0.875rem;
+  color: var(--steel);
+  margin-bottom: var(--space-2);
+}
+
+.place {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--copper);
+  border: 1px solid var(--copper);
+  border-radius: var(--radius-sm);
+  padding: 1px var(--space-2);
+}
+
+/* ── Case study blocks ───────────────────────────────────────── */
+.caseStudy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  border-left: 2px solid var(--steel-faint);
+  padding-left: var(--space-6);
+}
+
+.caseBlock {}
+
+.caseLabel {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: var(--space-1);
+}
+
+.caseText {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 640px;
+}
+
+/* ── Count-up (Effect #2) ────────────────────────────────────── */
+.countUp {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+}
+
+.countNum {
+  font-family: var(--font-head);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--copper);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.countLabel {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--steel);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .section {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .entry {
+    grid-template-columns: 24px 1fr;
+    gap: 0 var(--space-4);
+  }
+
+  .entryContent {
+    padding-bottom: var(--space-8);
+  }
+
+  .caseStudy {
+    padding-left: var(--space-3);
+  }
+}

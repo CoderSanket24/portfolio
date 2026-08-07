@@ -1,0 +1,83 @@
+/* =============================================================
+   TYPOGRAPHY.CSS — Heading scale, body text, annotation class.
+   Imported after globals.css.
+   ============================================================= */
+
+/* ── Heading Scale ──────────────────────────────────────────── */
+.h1 { font-size: clamp(2rem, 5vw, 3.5rem);   font-weight: 700; letter-spacing: -0.03em; }
+.h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; letter-spacing: -0.02em; }
+.h3 { font-size: clamp(1.1rem, 2vw, 1.5rem);  font-weight: 600; letter-spacing: -0.01em; }
+.h4 { font-size: 1.125rem; font-weight: 600; }
+.h5 { font-size: 1rem;     font-weight: 600; }
+
+/* ── Section Label (§ 01 — Section Name) ───────────────────── */
+.section-label {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--steel-faint);
+  max-width: 120px;
+}
+
+/* ── Annotation (Caveat font, handwritten feel) ─────────────── */
+/* Use ONLY for margin notes, tags, small callouts — never headings or body */
+.annotation {
+  font-family: var(--font-hand);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--steel);
+  line-height: 1.4;
+}
+
+.annotation--copper {
+  color: var(--copper);
+}
+
+/* ── Body Sizes ─────────────────────────────────────────────── */
+.text-sm   { font-size: 0.875rem; line-height: 1.55; }
+.text-base { font-size: 1rem;     line-height: 1.65; }
+.text-lg   { font-size: 1.125rem; line-height: 1.6;  }
+
+/* ── Mono (for code snippets, path-style text) ──────────────── */
+.mono {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85em;
+  color: var(--steel);
+}
+
+/* ── Link base ──────────────────────────────────────────────── */
+.link-copper {
+  color: var(--copper);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.link-copper:hover,
+.link-copper:focus-visible {
+  border-bottom-color: var(--copper);
+}
+
+.link-ink {
+  color: var(--ink);
+  border-bottom: 1px solid var(--steel-faint);
+  transition: border-color var(--transition-fast);
+}
+
+.link-ink:hover,
+.link-ink:focus-visible {
+  border-bottom-color: var(--copper);
+  color: var(--copper);
+}

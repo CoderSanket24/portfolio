@@ -1,0 +1,33 @@
+.figure {
+  margin: var(--space-8) 0;
+  border: 1px solid var(--steel-faint);
+  background: var(--surface);
+  padding: var(--space-6);
+  border-radius: var(--radius-sm);
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  display: block;
+}
+
+.caption {
+  margin-top: var(--space-4);
+  font-size: 0.8125rem;
+  color: var(--steel);
+  border-top: 1px solid var(--steel-faint);
+  padding-top: var(--space-3);
+}
+
+@media (max-width: 600px) {
+  .figure {
+    padding: var(--space-3);
+    overflow-x: auto;
+  }
+
+  .svg {
+    min-width: 500px;
+  }
+}
