@@ -24,7 +24,7 @@ export const achievements = [
   },
   {
     id: 'internal-sih',
-    year: '[YEAR_INTERNAL_SIH]', // ← fill in correct year
+    year: '2025', // ← fill in correct year
     event: 'Internal Smart India Hackathon',
     org: 'Vishwakarma Institute of Technology, Pune',
     place: '1st Place',
@@ -38,8 +38,8 @@ export const achievements = [
   },
   {
     id: 'vois-marathon',
-    year: '[YEAR_VOIS]', // ← fill in correct year
-    event: '_VOIS Innovation Marathon',
+    year: '2026', // ← fill in correct year
+    event: 'VOIS Innovation Marathon 2.0',
     org: 'Vodafone Intelligent Solutions (VOIS) + Edunet Foundation',
     place: 'National-level recognition',
     problem:

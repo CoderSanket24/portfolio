@@ -22,7 +22,7 @@ export const caseStudies = [
     tagline: 'Database architecture & backend system for agricultural intelligence',
     stack: ['Java', 'Spring Boot', 'MySQL', 'Python', 'TensorFlow/Keras', 'REST API'],
     role: 'Backend engineer & system architect',
-    repoUrl: null, // [GITHUB_URL]: add repo link when available
+    repoUrl: 'https://github.com/CoderSanket24/Agroassist-backend', // [GITHUB_URL]: add repo link when available
 
     // ── Case study content ─────────────────────────────────────
     problem:
@@ -114,7 +114,7 @@ export const secondaryProjects = [
     title: 'AI Micro-Investment App',
     tagline: 'ML-driven investment recommendation engine for small retail investors',
     stack: ['Node.js', 'Express', 'Python', 'ML'],
-    repoUrl: null,
+    repoUrl: 'https://github.com/CoderSanket24/smartchange',
     description:
       'Backend service that ingests market data and applies a trained model to generate micro-investment recommendations. Built to be runnable on minimal infrastructure — no cloud dependency.',
   },
@@ -123,7 +123,7 @@ export const secondaryProjects = [
     title: 'Smart Road / Pothole Detection',
     tagline: 'CV-based road defect classifier for municipal infrastructure reporting',
     stack: ['Python', 'OpenCV', 'CNN', 'Image Classification'],
-    repoUrl: null,
+    repoUrl: 'https://github.com/CoderSanket24/pothole_detection',
     description:
       'Image classification system that identifies and localises potholes in road surface photographs. Outputs structured defect reports suitable for automated municipal reporting workflows.',
   },
@@ -141,7 +141,7 @@ export const secondaryProjects = [
     title: 'Railway-OS',
     tagline: 'Operating-system-style process scheduler for railway network simulation',
     stack: ['Java', 'OS Concepts', 'Scheduling Algorithms'],
-    repoUrl: null,
+    repoUrl: 'https://github.com/CoderSanket24/railway-booking-system',
     description:
       'Systems project applying OS scheduling concepts (priority queues, preemption, deadlock avoidance) to model train dispatch on a simulated network. Academic systems programming project.',
   },
@@ -150,7 +150,7 @@ export const secondaryProjects = [
     title: 'Wildlife Sanctuary DBMS',
     tagline: 'Relational database management system for sanctuary record-keeping',
     stack: ['MySQL', 'SQL', 'Database Design'],
-    repoUrl: null,
+    repoUrl: 'https://github.com/CoderSanket24/wildlife-sanctuary-dbms',
     description:
       'Full schema design and query library for a wildlife sanctuary — tracking animal records, habitat assignments, veterinary history, and staff management. Emphasis on normalisation and referential integrity.',
   },
