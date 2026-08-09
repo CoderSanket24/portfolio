@@ -1,30 +1,7 @@
-/* =============================================================
-   DATA: ACHIEVEMENTS
-   Shape: { id, year, event, org, place, problem, approach, result, highlight }
-   - `highlight` is the number used for the count-up animation (Effect #2).
-     Only one entry should have a highlight value — the SIH 2024 accuracy.
-   - Year placeholders: SIH 2024 is confirmed.
-     [YEAR_INTERNAL_SIH] and [YEAR_VOIS] must be filled in by Sanket.
-   ============================================================= */
-
 export const achievements = [
   {
-    id: 'sih-2024',
-    year: '2024',
-    event: 'Smart India Hackathon',
-    org: 'Government of India',
-    place: null,
-    problem:
-      'Smallholder farmers in India lack affordable, real-time tools to identify crop diseases early, leading to significant yield losses and overuse of broad-spectrum pesticides.',
-    approach:
-      'Built a CNN-based image classification pipeline trained on a multi-class crop disease dataset. Implemented data augmentation to handle limited field samples, integrated the model with a lightweight REST API, and designed the system so it could run inference on low-end Android devices via a compressed model export.',
-    result:
-      'Achieved 94% test accuracy on the held-out dataset. Selected at national level.',
-    highlight: { label: '% test accuracy', value: 94 }, // ← count-up target (Effect #2)
-  },
-  {
     id: 'internal-sih',
-    year: '2025', // ← fill in correct year
+    year: '2025',
     event: 'Internal Smart India Hackathon',
     org: 'Vishwakarma Institute of Technology, Pune',
     place: '1st Place',
@@ -38,7 +15,7 @@ export const achievements = [
   },
   {
     id: 'vois-marathon',
-    year: '2026', // ← fill in correct year
+    year: '2026',
     event: 'VOIS Innovation Marathon 2.0',
     org: 'Vodafone Intelligent Solutions (VOIS) + Edunet Foundation',
     place: 'National-level recognition',

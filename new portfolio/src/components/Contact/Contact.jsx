@@ -1,25 +1,9 @@
 import styles from './Contact.module.css';
 
-/**
- * Contact component.
- *
- * EMAIL OBFUSCATION NOTE (for when you fill in your real address):
- * Do NOT put the email address as plain text in the DOM.
- * Plain mailto: links are harvested by bots/scrapers.
- * Instead, construct it via JS, e.g.:
- *
- *   const addr = ['sanket', 'yourdomain.com'].join('@');
- *   <a href={`mailto:${addr}`}>{addr}</a>
- *
- * Replace [YOUR_EMAIL_USER] and [YOUR_EMAIL_DOMAIN] below with your details.
- * The construction happens at render time — no build-time exposure.
- */
-
 export default function Contact() {
-  // [YOUR_EMAIL]: un-comment and fill these in when ready
-  // const emailUser   = '[YOUR_EMAIL_USER]';
-  // const emailDomain = '[YOUR_EMAIL_DOMAIN]';
-  // const emailAddr   = [emailUser, emailDomain].join('@');
+  const emailUser   = 'sanketbotre24';
+  const emailDomain = 'gmail.com';
+  const emailAddr   = [emailUser, emailDomain].join('@');
 
   return (
     <section id="contact" className={styles.section} aria-labelledby="contact-heading">
@@ -44,33 +28,33 @@ export default function Contact() {
               <span className={`${styles.linkLabel} annotation`}>Email</span>
               {/* Replace the placeholder below with the JS-constructed mailto approach documented above */}
               <span className={styles.placeholder} aria-label="Email address — to be filled in">
-                [YOUR_EMAIL] — see code comment for obfuscation approach
+                <a href={`mailto:${emailAddr}`}>{emailAddr}</a>
               </span>
             </div>
 
             <div className={styles.linkGroup}>
               <span className={`${styles.linkLabel} annotation`}>GitHub</span>
               <a
-                href="https://github.com/[GITHUB_USERNAME]"
+                href="https://github.com/CoderSanket24"
                 className={styles.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub profile — [GITHUB_USERNAME]"
+                aria-label="GitHub profile — CoderSanket24"
               >
-                github.com/<span className={styles.linkHandle}>[GITHUB_USERNAME]</span>
+                github.com/<span className={styles.linkHandle}>CoderSanket24</span>
               </a>
             </div>
 
             <div className={styles.linkGroup}>
               <span className={`${styles.linkLabel} annotation`}>LinkedIn</span>
               <a
-                href="https://linkedin.com/in/[LINKEDIN_URL]"
+                href="https://linkedin.com/in/sanket-botre-568a44320"
                 className={styles.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn profile — [LINKEDIN_URL]"
+                aria-label="LinkedIn profile — sanket-botre-568a44320"
               >
-                linkedin.com/in/<span className={styles.linkHandle}>[LINKEDIN_URL]</span>
+                linkedin.com/in/<span className={styles.linkHandle}>sanket-botre-568a44320</span>
               </a>
             </div>
           </div>

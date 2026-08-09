@@ -1,20 +1,3 @@
-/* =============================================================
-   DATA: PROJECTS
-   ORDERING RULE:
-     1. Case studies first (full depth): Agroassist, then CV coaching app.
-     2. Secondary grid projects follow.
-
-   FRAMING REMINDER — AGROASSIST:
-     Lead with DATABASE ARCHITECTURE and system design.
-     Primary story: MySQL schema design → data flow → Spring Boot API layer
-     → how the CNN model integrates as a downstream service.
-     Do NOT frame Agroassist as "an AI app." The ML component is secondary
-     to the system design story. If you drift toward "AI-powered agriculture
-     platform," pull back to the schema and data flow first.
-   ============================================================= */
-
-// ── Case Studies (full depth) ─────────────────────────────────
-
 export const caseStudies = [
   {
     id: 'agroassist',
@@ -59,51 +42,7 @@ export const caseStudies = [
     ],
 
     hasDiagram: true, // renders the SVG draw-in animation
-  },
-
-  {
-    id: 'cv-sports-coaching',
-    title: 'CV Sports Coaching App',
-    tagline: 'Computer vision feedback system for rural athletes — no specialist hardware',
-    stack: ['Python', 'OpenCV', 'Pose Estimation', 'JavaScript', 'Node.js'],
-    role: 'ML engineer & system designer',
-    repoUrl: null, // [GITHUB_URL]: add repo link when available
-
-    problem:
-      'Elite sports programs use expensive motion-capture rigs and biomechanics analysts to give athletes structured feedback. Rural athletes and coaches at the grassroots level have neither. The question was whether a standard camera and a laptop could substitute — not perfectly, but usefully.',
-
-    technicalDecisions: [
-      {
-        decision: 'Pose estimation over custom model training',
-        rationale:
-          'Used a pre-trained pose estimation model (keypoint detection) rather than training a sport-specific classifier from scratch. This kept the data requirements manageable — the real engineering work was in the post-processing layer that interpreted keypoint positions into meaningful feedback (joint angles, symmetry, timing consistency) rather than in building a new model.',
-      },
-      {
-        decision: 'Frame-by-frame analysis with a structured feedback report',
-        rationale:
-          'Rather than real-time overlays (which require low-latency hardware), the system processes recorded video and generates a structured PDF report: specific frames flagged, angle measurements, deviation from a reference template. This makes the output actionable for a coach reviewing it offline.',
-      },
-      {
-        decision: 'No specialist hardware requirement',
-        rationale:
-          'The entire pipeline runs on a standard laptop with a webcam or any recorded video file. The deliberate constraint shaped every technical decision — model choice, processing approach, output format.',
-      },
-    ],
-
-    architectureNote:
-      'Video input → frame extraction → pose keypoint detection → angle computation & anomaly flagging → structured report generation.',
-
-    outcome:
-      'Awarded 1st Place at the Internal Smart India Hackathon at VIT Pune. Demonstrated to faculty and industry judges as a deployable prototype for rural sports training. The key insight validated: structured biomechanics feedback is achievable without specialist hardware when the output format is designed for the coach, not for the algorithm.',
-
-    screenshots: [
-      { id: 'cv-pose',    description: 'Pose estimation overlay on athlete video frame showing detected keypoints' },
-      { id: 'cv-report',  description: 'Generated feedback report showing joint angle analysis and flagged frames' },
-      { id: 'cv-ui',      description: 'Coach-facing interface for uploading video and viewing analysis results' },
-    ],
-
-    hasDiagram: false,
-  },
+  }
 ];
 
 // ── Secondary Projects (lighter grid) ────────────────────────
