@@ -106,8 +106,8 @@
 }
 
 .skillNote {
-  font-size: 0.8125rem;
-  color: var(--steel);
+  /* Caveat font: inherits 1.2rem (19.2px) from .annotation global class */
+  color: var(--steel-dark);
   line-height: 1.45;
 }
 

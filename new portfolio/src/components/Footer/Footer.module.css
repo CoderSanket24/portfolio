@@ -38,9 +38,9 @@
 }
 
 .stack {
-  font-size: 0.8125rem;
-  color: var(--steel);
-  opacity: 0.5;
+  font-size: 0.9375rem; /* 15px — raised from 13px; steel-dark for contrast */
+  color: var(--steel-dark);
+  opacity: 0.6;
 }
 
 @media (max-width: 600px) {

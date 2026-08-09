@@ -10,6 +10,7 @@
   --paper:       #EDEAE2;   /* background — warm graph-paper white */
   --ink:         #22252A;   /* primary text — warm-neutral graphite */
   --steel:       #5B5F66;   /* secondary text, borders, structural lines */
+  --steel-dark:  #454952;   /* darkened steel for text ≤15px — better WCAG AA contrast on --paper */
   --copper:      #B5622E;   /* single accent — numbers, badges, hover/focus ONLY */
   --surface:     #FFFFFF;   /* card backgrounds */
   --steel-faint: #5B5F6633; /* hairline dividers, subtle borders */
@@ -55,8 +56,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 1rem;      /* 16px minimum — never smaller */
+  line-height: 1.6;
   color: var(--ink);
   background-color: var(--paper);
 
@@ -135,7 +136,7 @@ ul, ol {
   background: var(--copper);
   color: var(--surface);
   font-family: var(--font-head);
-  font-size: 0.875rem;
+  font-size: 0.9375rem; /* 15px min for steel-on-paper; copper bg here has better contrast */
   font-weight: 600;
   border: 1px solid var(--ink);
   border-radius: var(--radius-sm);

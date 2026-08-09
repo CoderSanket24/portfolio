@@ -67,7 +67,7 @@
 
 .year {
   display: block;
-  font-size: 0.8rem;
+  /* Caveat font: inherits 1.2rem (19.2px) from .annotation global class */
   letter-spacing: 0.06em;
   margin-bottom: var(--space-2);
 }
@@ -82,8 +82,8 @@
 }
 
 .org {
-  font-size: 0.875rem;
-  color: var(--steel);
+  font-size: 0.9375rem; /* 15px — minimum for steel on --paper */
+  color: var(--steel-dark); /* darkened steel: better contrast at 15px */
   margin-bottom: var(--space-2);
 }
 
@@ -113,10 +113,11 @@
 
 .caseLabel {
   display: block;
-  font-size: 0.75rem;
+  /* Caveat font: inherits 1.2rem (19.2px) from .annotation global class */
+  /* All-caps + letter-spacing: eyebrow exception, but Caveat still needs size — don’t shrink */
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--steel);
+  color: var(--steel-dark);
   margin-bottom: var(--space-1);
 }
 
@@ -146,7 +147,7 @@
 
 .countLabel {
   font-family: var(--font-head);
-  font-size: 1rem;
+  font-size: 1.125rem; /* 18px — raised from 1rem to match weight of the number beside it */
   font-weight: 500;
   color: var(--steel);
 }

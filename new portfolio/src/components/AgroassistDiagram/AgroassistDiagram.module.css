@@ -15,8 +15,8 @@
 
 .caption {
   margin-top: var(--space-4);
-  font-size: 0.8125rem;
-  color: var(--steel);
+  font-size: 0.9375rem; /* 15px — raised from 13px; steel-dark for contrast on --paper */
+  color: var(--steel-dark);
   border-top: 1px solid var(--steel-faint);
   padding-top: var(--space-3);
 }

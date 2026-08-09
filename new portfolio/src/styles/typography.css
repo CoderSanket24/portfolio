@@ -34,9 +34,11 @@
 
 /* ── Annotation (Caveat font, handwritten feel) ─────────────── */
 /* Use ONLY for margin notes, tags, small callouts — never headings or body */
+/* Caveat is a script font: must run 3-4px larger than sans at equivalent weight */
+/* Minimum 18px (1.125rem) — ideally 19-20px (1.1875–1.25rem) */
 .annotation {
   font-family: var(--font-hand);
-  font-size: 0.95rem;
+  font-size: 1.2rem;   /* 19.2px — script font legibility floor */
   font-weight: 400;
   color: var(--steel);
   line-height: 1.4;
@@ -47,7 +49,7 @@
 }
 
 /* ── Body Sizes ─────────────────────────────────────────────── */
-.text-sm   { font-size: 0.875rem; line-height: 1.55; }
+.text-sm   { font-size: 0.9375rem; line-height: 1.6; }  /* 15px — steel-color minimum */
 .text-base { font-size: 1rem;     line-height: 1.65; }
 .text-lg   { font-size: 1.125rem; line-height: 1.6;  }
 

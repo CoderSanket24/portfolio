@@ -20,7 +20,7 @@
 .pageMarker {
   display: block;
   margin-bottom: var(--space-6);
-  font-size: 0.875rem;
+  /* Caveat font: inherits 1.2rem (19.2px) from .annotation global class */
   color: var(--steel);
 }
 
@@ -126,7 +126,7 @@
 
 .annotTag {
   display: block;
-  font-size: 0.9rem;
+  /* Caveat font: inherits 1.2rem (19.2px) from .annotation global class */
   color: var(--steel);
   line-height: 1.6;
 }
@@ -183,7 +183,7 @@
 
   .annotTag {
     display: inline-block;
-    font-size: 0.825rem;
+    font-size: 1.125rem; /* 18px floor for Caveat even at mobile */
     padding: 2px var(--space-2);
     border: 1px solid var(--steel-faint);
     border-radius: var(--radius-sm);

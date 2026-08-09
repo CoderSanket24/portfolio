@@ -21,13 +21,16 @@
 }
 
 .caseNum {
-  font-size: 0.8rem;
+  /* All-caps eyebrow annotation — 13px exception */
+  font-size: 0.8125rem;
   letter-spacing: 0.08em;
+  color: var(--copper);
 }
 
 .role {
-  font-size: 0.8rem;
-  color: var(--steel);
+  /* All-caps navigational meta — 13px exception, steel-dark for contrast */
+  font-size: 0.8125rem;
+  color: var(--steel-dark);
   padding-left: var(--space-4);
   border-left: 1px solid var(--steel-faint);
 }
@@ -44,9 +47,9 @@
 
 .tagline {
   font-size: 1rem;
-  color: var(--steel);
+  color: var(--steel-dark);
   margin-bottom: var(--space-4);
-  line-height: 1.55;
+  line-height: 1.6;
   max-width: 560px;
 }
 
@@ -60,10 +63,10 @@
 
 .stackTag {
   font-family: var(--font-head);
-  font-size: 0.75rem;
+  font-size: 0.8125rem; /* 13px — badge eyebrow exception; steel-dark compensates contrast */
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--steel);
+  color: var(--steel-dark);
   border: 1px solid var(--steel-faint);
   border-radius: var(--radius-sm);
   padding: 2px var(--space-2);
@@ -73,7 +76,7 @@
 /* ── Repo link ──────────────────────────────────────────────── */
 .repoLink {
   font-family: var(--font-head);
-  font-size: 0.875rem;
+  font-size: 0.9375rem; /* 15px — raised from 14px */
   font-weight: 500;
   color: var(--copper);
   border-bottom: 1px solid transparent;
@@ -87,8 +90,8 @@
 }
 
 .repoPlaceholder {
-  font-size: 0.8125rem;
-  color: var(--steel);
+  font-size: 0.9375rem; /* 15px — raised from 13px */
+  color: var(--steel-dark);
   opacity: 0.7;
 }
 
@@ -122,9 +125,10 @@
 }
 
 .caseSectionLabel .annotation {
-  font-size: 0.75rem;
-  color: var(--steel);
-  opacity: 0.6;
+  /* Eyebrow number e.g. '01 /' — override global Caveat size for this decorative glyph only */
+  font-size: 0.875rem; /* 14px acceptable: it's a single decorative character, not reading text */
+  color: var(--steel-dark);
+  opacity: 0.7;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
@@ -138,8 +142,8 @@
 }
 
 .archNote {
-  font-size: 0.875rem;
-  color: var(--steel);
+  font-size: 0.9375rem; /* 15px — raised from 14px */
+  color: var(--steel-dark);
   margin-bottom: var(--space-4);
   line-height: 1.6;
   grid-column: 2;
@@ -167,9 +171,9 @@
 }
 
 .decisionRationale {
-  font-size: 0.9375rem;
+  font-size: 0.9375rem; /* 15px — kept at floor, steel-dark for contrast */
   line-height: 1.7;
-  color: var(--steel);
+  color: var(--steel-dark);
   max-width: 620px;
 }
 
@@ -203,8 +207,9 @@
 }
 
 .screenshotCaption {
-  font-size: 0.75rem;
-  color: var(--steel);
+  /* Caveat font: inherits 1.2rem (19.2px) from .annotation global class */
+  /* Local override removed — do not add font-size here */
+  color: var(--steel-dark);
   padding: var(--space-2) var(--space-3);
   line-height: 1.4;
   opacity: 0.8;

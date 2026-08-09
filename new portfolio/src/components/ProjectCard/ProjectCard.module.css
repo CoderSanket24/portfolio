@@ -41,16 +41,16 @@
 }
 
 .tagline {
-  font-size: 0.8125rem;
-  color: var(--steel);
+  font-size: 0.9375rem; /* 15px — steel color minimum */
+  color: var(--steel-dark);
   line-height: 1.5;
 }
 
 /* ── Description ─────────────────────────────────────────────── */
 .description {
-  font-size: 0.875rem;
+  font-size: 0.9375rem; /* 15px — steel color minimum */
   line-height: 1.65;
-  color: var(--steel);
+  color: var(--steel-dark);
   flex: 1;
 }
 
@@ -74,10 +74,10 @@
 
 .stackTag {
   font-family: var(--font-head);
-  font-size: 0.6875rem;
+  font-size: 0.75rem; /* 12px — short all-caps badge, eyebrow exception; steel-dark compensates */
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: var(--steel);
+  color: var(--steel-dark);
   border: 1px solid var(--steel-faint);
   border-radius: var(--radius-sm);
   padding: 1px 6px;
@@ -85,16 +85,16 @@
 
 .stackTagMore {
   font-family: var(--font-head);
-  font-size: 0.6875rem;
+  font-size: 0.75rem; /* raised from 11px */
   font-weight: 500;
-  color: var(--steel);
-  opacity: 0.6;
+  color: var(--steel-dark);
+  opacity: 0.7;
   padding: 1px 4px;
 }
 
 .link {
   font-family: var(--font-head);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem; /* 15px — raised from 13px */
   font-weight: 600;
   color: var(--copper);
   border-bottom: 1px solid transparent;
@@ -110,7 +110,7 @@
 }
 
 .linkPlaceholder {
-  font-size: 0.75rem;
-  color: var(--steel);
-  opacity: 0.5;
+  font-size: 0.9375rem; /* 15px — raised from 12px */
+  color: var(--steel-dark);
+  opacity: 0.6;
 }
