@@ -1,30 +1,30 @@
 export const achievements = [
   {
-    id: 'internal-sih',
-    year: '2025',
-    event: 'Internal Smart India Hackathon',
-    org: 'Vishwakarma Institute of Technology, Pune',
-    place: '1st Place',
-    problem:
-      'Rural athletes and coaches in India have no access to the biomechanics feedback tools available to elite sports programs — the gap is equipment cost and technical expertise.',
-    approach:
-      'Built a computer vision sports coaching application using pose estimation to analyse athlete movement in real time. The system provided structured feedback reports for coaches without requiring specialised hardware, using only a standard camera.',
-    result:
-      'Awarded 1st Place at the institute level. Demonstrated to faculty and industry judges as a deployable prototype for rural sports training programs.',
-    highlight: null,
-  },
-  {
     id: 'vois-marathon',
     year: '2026',
     event: 'VOIS Innovation Marathon 2.0',
     org: 'Vodafone Intelligent Solutions (VOIS) + Edunet Foundation',
     place: 'National-level recognition',
     problem:
-      'The challenge called for solutions that apply emerging technology to real social or business problems at scale — submissions were evaluated against national-level competition.',
+      'Individuals and small organizations struggle to track their daily carbon emission impact accurately due to fragmented data sources, manual calculation complexity, and lack of actionable reduction insights.',
     approach:
-      'Developed and presented a technically grounded proposal addressing the problem statement, demonstrating feasibility through a working prototype with documented architecture and performance metrics.',
+      'Built a full-stack carbon footprint tracking platform that automates daily emission calculations across travel, energy, and consumption habits using standardized carbon coefficient models and real-time data visualisations.',
     result:
-      'Received national-level recognition from Vodafone Intelligent Solutions and Edunet, competing against participants from engineering colleges across India.',
+      'Created a user-friendly dashboard with personalized reduction goals, historical metrics, and automated reporting to help users visualize and systematically reduce their environmental footprint.',
+    highlight: null,
+  },
+  {
+    id: 'internal-sih',
+    year: '2025',
+    event: 'Internal Smart India Hackathon',
+    org: 'Vishwakarma Institute of Technology, Pune',
+    place: '1st Place',
+    problem:
+      'Traditional Indian Kolam and Rangoli patterns represent rich mathematical and cultural heritage, but lack digital preservation and algorithmic tools for modern design, analysis, and automated generation.',
+    approach:
+      'Developed a computer vision and generative algorithm platform that digitises, analyses grid symmetry, and auto-generates intricate Kolam patterns in real time using vector path mapping and image processing.',
+    result:
+      'Successfully implemented an interactive tool capable of recognizing cultural pattern geometries and generating scalable vector outputs, preserving mathematical heritage through modern web technology.',
     highlight: null,
   },
 ];
