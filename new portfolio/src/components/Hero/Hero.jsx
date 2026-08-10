@@ -41,8 +41,8 @@ export default function Hero() {
 
           <p className={styles.positioning}>
             Building data-dense systems at the intersection of backend
-            architecture and applied ML. Currently at VIT Pune — 2nd year,
-            AI &amp; Data Science.
+            architecture and applied ML. Currently at VIT Pune — 3rd year,
+            Artificial Intelligence &amp; Machine Learning.
           </p>
 
           {/* CTA links — plain text style, no pill buttons */}
@@ -60,7 +60,7 @@ export default function Hero() {
         <aside className={styles.annotations} aria-label="Quick facts">
           <div className={styles.annotationBlock}>
             <span className={`${styles.annotTag} annotation`}>// VIT Pune</span>
-            <span className={`${styles.annotTag} annotation`}>// Class of 2026</span>
+            <span className={`${styles.annotTag} annotation`}>// Class of 2028</span>
             <span className={`${styles.annotTag} annotation`}>// Pune, IN</span>
             <span className={`${styles.annotTag} annotation`}>// 3× hackathon</span>
             <span className={`${styles.annotTag} annotation`}>// backend-first</span>

@@ -18,8 +18,8 @@ export default function About() {
             </h2>
 
             <p className={styles.bioText}>
-              I&apos;m Sanket Botre, studying AI &amp; Data Science at Vishwakarma
-              Institute of Technology (VIT) Pune, Class of 2026. My work sits at
+              I&apos;m Sanket Botre, studying AI &amp; Machine Learning at Vishwakarma
+              Institute of Technology (VIT) Pune, Class of 2028. My work sits at
               the boundary between backend engineering and applied machine learning
               — which means I care about the database schema and the API contract
               as much as the model accuracy. Probably more.
@@ -29,7 +29,7 @@ export default function About() {
               Most of what I build starts with a systems question: what&apos;s the
               right data model? What breaks first at scale? How does the ML
               component integrate without becoming a single point of failure? The
-              Smart India Hackathon project that got to 94% accuracy started as a
+              Agroassist project that got to 94% accuracy started as a
               schema design exercise — the model came later, built on top of a
               foundation that could actually support it.
             </p>
@@ -42,7 +42,7 @@ export default function About() {
 
             {/* Small inline divider with annotation */}
             <p className={`${styles.note} annotation`} aria-hidden="true">
-              // currently: 2nd year · open to internships · backend / systems roles
+              // currently: 3rd year · open to internships · backend / systems roles
             </p>
           </div>
 
@@ -55,11 +55,11 @@ export default function About() {
               </div>
               <div className={styles.annotItem}>
                 <dt className={`${styles.annotLabel} annotation`}>Program</dt>
-                <dd className={`${styles.annotValue} annotation`}>B.Tech AI &amp; DS</dd>
+                <dd className={`${styles.annotValue} annotation`}>B.Tech CSE(AI &amp; ML)</dd>
               </div>
               <div className={styles.annotItem}>
                 <dt className={`${styles.annotLabel} annotation`}>Batch</dt>
-                <dd className={`${styles.annotValue} annotation annotation--copper`}>Class of 2026</dd>
+                <dd className={`${styles.annotValue} annotation annotation--copper`}>Class of 2028</dd>
               </div>
               <div className={styles.annotItem}>
                 <dt className={`${styles.annotLabel} annotation`}>Location</dt>
