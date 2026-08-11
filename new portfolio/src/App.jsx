@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react';
 import SkipLink from './components/SkipLink/SkipLink';
 import Nav from './components/Nav/Nav';
 import Hero from './components/Hero/Hero';
@@ -6,6 +7,7 @@ import SkillsWorkbench from './components/SkillsWorkbench/SkillsWorkbench';
 import Achievements from './components/Achievements/Achievements';
 import ProjectCaseStudy from './components/ProjectCaseStudy/ProjectCaseStudy';
 import ProjectCard from './components/ProjectCard/ProjectCard';
+import ProjectModal from './components/ProjectModal/ProjectModal';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 
@@ -13,6 +15,20 @@ import { caseStudies, secondaryProjects } from './data/projects';
 import styles from './App.module.css';
 
 export default function App() {
+  // Modal state: which secondary project is open, and which card triggered it
+  const [activeProject, setActiveProject] = useState(null);
+  const [triggerRef, setTriggerRef] = useState(null);
+
+  const handleCardClick = useCallback((project, ref) => {
+    setActiveProject(project);
+    setTriggerRef(ref);
+  }, []);
+
+  const handleModalClose = useCallback(() => {
+    setActiveProject(null);
+    setTriggerRef(null);
+  }, []);
+
   return (
     <>
       {/* Skip link — must be first focusable element */}
@@ -45,7 +61,7 @@ export default function App() {
             </h2>
             <p className={styles.workSubheading}>
               Two full case studies followed by a broader project inventory.
-              Backend and systems work first.
+              Click any card for full detail.
             </p>
 
             {/* Full depth case studies */}
@@ -63,7 +79,11 @@ export default function App() {
               </h3>
               <div className={styles.projectGrid}>
                 {secondaryProjects.map((project) => (
-                  <ProjectCard key={project.id} project={project} />
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    onClick={handleCardClick}
+                  />
                 ))}
               </div>
             </div>
@@ -77,6 +97,16 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Project detail modal — rendered at root level, outside main,
+          so it's not clipped by any overflow:hidden ancestors */}
+      {activeProject && (
+        <ProjectModal
+          project={activeProject}
+          onClose={handleModalClose}
+          triggerRef={triggerRef}
+        />
+      )}
     </>
   );
 }

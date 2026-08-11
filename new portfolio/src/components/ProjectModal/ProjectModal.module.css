@@ -1,0 +1,249 @@
+/* ── Native <dialog> backdrop ─────────────────────────────────
+   The ::backdrop pseudo-element styles the overlay behind the dialog.
+   No extra wrapper div needed — the browser handles stacking context.
+──────────────────────────────────────────────────────────────── */
+.dialog::backdrop {
+  background: rgba(34, 37, 42, 0.55); /* --ink at 55% opacity */
+  backdrop-filter: blur(2px);
+}
+
+.dialog {
+  /* Reset browser dialog defaults */
+  border: none;
+  padding: 0;
+  background: transparent;
+
+  /* Sizing */
+  width: min(760px, calc(100vw - 2rem));
+  max-height: calc(100dvh - 4rem);
+  overflow: hidden;
+
+  /* Position: centered */
+  margin: auto;
+
+  /* Design system border — not rounded */
+  border-radius: var(--radius-sm);
+
+  /* No animation — functional open, within the 3-effect budget */
+}
+
+/* ── Inner scroll container ──────────────────────────────────── */
+.inner {
+  background: var(--surface);
+  border: 1px solid var(--steel-faint);
+  border-top: 3px solid var(--copper); /* copper top accent — anchors the modal */
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 4rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-8) var(--space-6);
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+  z-index: 1;
+  border-bottom: 1px solid var(--steel-faint);
+}
+
+.headerLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+  color: var(--copper);
+}
+
+.title {
+  font-family: var(--font-head);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+.tagline {
+  font-size: 0.9375rem;
+  color: var(--steel-dark);
+  line-height: 1.55;
+  margin-bottom: var(--space-4);
+  max-width: 500px;
+}
+
+/* ── Stack tags ─────────────────────────────────────────────── */
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.stackTag {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--steel-dark);
+  border: 1px solid var(--steel-faint);
+  border-radius: var(--radius-sm);
+  padding: 2px var(--space-2);
+}
+
+/* ── Close button ────────────────────────────────────────────── */
+.closeBtn {
+  font-family: var(--font-head);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--steel);
+  background: none;
+  border: 1px solid var(--steel-faint);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.closeBtn:hover {
+  border-color: var(--copper);
+  color: var(--copper);
+}
+
+/* ── Divider ─────────────────────────────────────────────────── */
+.divider {
+  display: none; /* header border-bottom handles this already */
+}
+
+/* ── Body ────────────────────────────────────────────────────── */
+.body {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: var(--space-8);
+  max-width: 640px;
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--steel-faint);
+}
+
+/* ── Case study blocks ───────────────────────────────────────── */
+.caseBlock {
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--steel-faint);
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.caseBlock:last-child {
+  border-bottom: none;
+}
+
+.caseLabel {
+  font-family: var(--font-head);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--steel-dark);
+  padding-top: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.caseLabel .annotation {
+  /* Eyebrow number '01 /' — single decorative glyph, smaller is fine */
+  font-size: 0.875rem;
+  color: var(--copper);
+  opacity: 0.8;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.caseText {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink);
+  max-width: 560px;
+}
+
+/* ── Footer: repo link ───────────────────────────────────────── */
+.footer {
+  padding: var(--space-6) var(--space-8);
+  border-top: 1px solid var(--steel-faint);
+  background: var(--paper);
+}
+
+.repoLink {
+  font-family: var(--font-head);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--copper);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.repoLink:hover,
+.repoLink:focus-visible {
+  border-bottom-color: var(--copper);
+  outline: none;
+}
+
+.repoPlaceholder {
+  font-size: 0.9375rem;
+  color: var(--steel-dark);
+  opacity: 0.6;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .header {
+    padding: var(--space-6) var(--space-4) var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .closeBtn {
+    order: -1;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+
+  .body {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .caseBlock {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .footer {
+    padding: var(--space-4);
+  }
+}

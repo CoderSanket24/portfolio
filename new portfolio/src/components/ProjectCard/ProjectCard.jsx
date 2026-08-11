@@ -1,10 +1,20 @@
+import { useRef } from 'react';
 import styles from './ProjectCard.module.css';
 
 /**
  * ProjectCard — lighter card for the secondary project grid.
  * Effect #3: hover lift (translateY + copper border-left), 150ms ease.
+ *
+ * onClick: called with (project, triggerRef) so the modal can return
+ * focus to this card's button when it closes.
  */
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, onClick }) {
+  const btnRef = useRef(null);
+
+  const handleClick = () => {
+    onClick(project, btnRef);
+  };
+
   return (
     <article
       className={styles.card}
@@ -31,21 +41,16 @@ export default function ProjectCard({ project }) {
             )}
           </ul>
 
-          {project.repoUrl ? (
-            <a
-              href={project.repoUrl}
-              className={styles.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${project.title} repository`}
-            >
-              → repo
-            </a>
-          ) : (
-            <span className={`${styles.linkPlaceholder} annotation`} aria-hidden="true">
-              [repo]
-            </span>
-          )}
+          {/* "View detail" trigger — opens the modal */}
+          <button
+            ref={btnRef}
+            className={styles.detailBtn}
+            onClick={handleClick}
+            aria-label={`View full details for ${project.title}`}
+            aria-haspopup="dialog"
+          >
+            view detail →
+          </button>
         </footer>
       </div>
     </article>
