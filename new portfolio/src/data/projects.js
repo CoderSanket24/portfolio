@@ -80,21 +80,6 @@ export const secondaryProjects = [
       'Classifier achieves solid accuracy on the held-out test set. The pipeline processes a directory of road images and produces per-image defect reports with bounding estimates. Output format is integration-ready for a GIS or ticketing system.',
   },
   {
-    id: 'gestudrive',
-    title: 'GestuDrive',
-    tagline: 'Gesture-controlled vehicle interface using real-time hand tracking',
-    stack: ['Python', 'OpenCV', 'MediaPipe', 'JavaScript'],
-    repoUrl: null,
-    description:
-      'Gesture recognition system mapping hand poses to vehicle control inputs. Built as a hands-free HCI prototype — real-time gesture classification at low latency using MediaPipe hand landmarks.',
-    problem:
-      'Traditional vehicle input interfaces (steering wheel, buttons) require physical contact and attention diversion. A gesture-based interface could enable hands-free control in accessibility contexts or for in-vehicle HCI research.',
-    approach:
-      'Used MediaPipe\'s hand landmark model (21 keypoints per hand) to detect and classify gestures in real time from a webcam feed. Defined a gesture vocabulary (open palm, fist, point, pinch, swipe) and mapped each to a control command. The system runs entirely on CPU — no GPU required — by relying on pre-trained MediaPipe models rather than custom training, keeping inference latency under 40ms on a mid-range laptop.',
-    outcome:
-      'Real-time gesture-to-command mapping at ~25fps on standard hardware. Five distinct gestures reliably classified with low false-positive rates under controlled lighting. Built as a research prototype demonstrating that MediaPipe landmarks are sufficient for coarse vehicle HCI without custom model training.',
-  },
-  {
     id: 'railway-os',
     title: 'Railway-OS',
     tagline: 'OS scheduling concepts applied to railway network simulation',
@@ -123,21 +108,6 @@ export const secondaryProjects = [
       'Designed the schema from first principles: identified entities (Animal, Enclosure, Species, Veterinarian, MedicalRecord, FeedingSchedule, Staff), established relationships, and normalised to 3NF. Used foreign key constraints and ON DELETE/UPDATE CASCADE rules to enforce referential integrity. Wrote a query library covering common reporting needs: animals by species, upcoming medical checkups, enclosure occupancy, staff shift schedules.',
     outcome:
       'Fully normalised schema with zero redundancy in the tested data set. All integrity constraints enforced at the database level — not in application code. The query library covers 12 common operational reports. Good reference implementation of relational design principles applied to a non-trivial domain.',
-  },
-  {
-    id: 'c-dsa-library',
-    title: 'C DSA Library',
-    tagline: 'Data structures & algorithms implemented from scratch in C',
-    stack: ['C', 'Data Structures', 'Algorithms', 'Memory Management'],
-    repoUrl: null,
-    description:
-      'Hand-rolled implementations of core data structures and algorithms in C, with documented time/space complexity. Built to understand internals, not to use a library.',
-    problem:
-      'Using standard library data structures without understanding what\'s happening under the hood creates blind spots — especially around memory allocation patterns, pointer arithmetic, and the actual cost of operations. The goal was to build everything from scratch once, so the mental model is solid.',
-    approach:
-      'Implemented: singly and doubly linked lists, stack, queue, BST with inorder/preorder/postorder traversal, hash table with chaining (separate chaining collision resolution), min-heap and max-heap, and sorting algorithms (bubble, selection, insertion, merge, quicksort). Each implementation is a separate .h/.c file pair with a documented interface. No malloc wrappers — manual memory management throughout.',
-    outcome:
-      'A functional, self-contained C library. Writing the hash table collision resolution and the heap\'s sift-up/sift-down operations from scratch clarified why these operations have their stated complexities in a way that reading about them does not. The merge sort implementation was particularly useful for understanding stable sort guarantees.',
   },
   {
     id: 'stock-prediction',
