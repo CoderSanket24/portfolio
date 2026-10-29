@@ -22,6 +22,7 @@ export default function ProjectModal({ project, onClose, triggerRef }) {
   // Open dialog and move focus to close button
   useEffect(() => {
     const dialog = dialogRef.current;
+    const triggerEl = triggerRef?.current;
     if (!dialog) return;
     dialog.showModal();
     closeBtnRef.current?.focus();
@@ -41,7 +42,7 @@ export default function ProjectModal({ project, onClose, triggerRef }) {
     // Return focus to the card that opened the modal
     return () => {
       dialog.removeEventListener('click', handleBackdropClick);
-      triggerRef?.current?.focus();
+      triggerEl?.focus();
     };
   }, [onClose, triggerRef]);
 
