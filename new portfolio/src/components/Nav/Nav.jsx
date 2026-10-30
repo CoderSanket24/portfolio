@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import styles from './Nav.module.css';
 
 const navLinks = [
-  { href: '#about',    label: '~/about'   },
-  { href: '#work',     label: '~/work'    },
-  { href: '#contact',  label: '~/contact' },
+  { href: '#about',    label: 'About' },
+  { href: '#work',     label: 'Projects' },
+  { href: '#contact',  label: 'Contact' },
 ];
 
 export default function Nav() {

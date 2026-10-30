@@ -55,13 +55,13 @@ export default function App() {
         {/* § 04 — Work */}
         <section id="work" className={styles.workSection} aria-labelledby="work-heading">
           <div className={styles.workInner}>
-            <p className="section-label" aria-hidden="true">§ 04 — Work</p>
+            <p className="section-label" aria-hidden="true">My Projects</p>
             <h2 id="work-heading" className={styles.workHeading}>
-              Selected projects
+              What I&apos;ve Built
             </h2>
             <p className={styles.workSubheading}>
-              Two full case studies followed by a broader project inventory.
-              Click any card for full detail.
+              Here are my key projects showcasing backend systems, ML integration, 
+              and full-stack development. Click any project card to see the full details.
             </p>
 
             {/* Full depth case studies */}
@@ -74,8 +74,7 @@ export default function App() {
             {/* Secondary project grid */}
             <div className={styles.secondarySection}>
               <h3 className={styles.secondaryHeading}>
-                <span className="annotation" aria-hidden="true">↓ </span>
-                More projects
+                Other Projects
               </h3>
               <div className={styles.projectGrid}>
                 {secondaryProjects.map((project) => (

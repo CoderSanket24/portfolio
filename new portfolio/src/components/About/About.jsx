@@ -6,78 +6,78 @@ export default function About() {
       <div className={styles.inner}>
 
         {/* Section label */}
-        <p className="section-label" aria-hidden="true">§ 01 — About</p>
+        <p className="section-label" aria-hidden="true">About Me</p>
 
         <div className={styles.grid}>
 
           {/* Left: prose bio */}
           <div className={styles.bio}>
             <h2 id="about-heading" className={`h2 ${styles.bioHeading}`}>
-              Second year. Backend-first.
-              <br />Not a typical AI portfolio.
+              I Build Backend Systems That Scale
             </h2>
 
             <p className={styles.bioText}>
-              I&apos;m Sanket Botre, studying AI &amp; Machine Learning at Vishwakarma
-              Institute of Technology (VIT) Pune, Class of 2028. My work sits at
-              the boundary between backend engineering and applied machine learning
-              — which means I care about the database schema and the API contract
-              as much as the model accuracy. Probably more.
+              <strong>Who I Am:</strong> I&apos;m Sanket Botre, a 3rd-year student at VIT Pune 
+              studying AI & Machine Learning. Unlike most AI students, I focus heavily on 
+              backend engineering and system architecture.
             </p>
 
             <p className={styles.bioText}>
-              Most of what I build starts with a systems question: what&apos;s the
-              right data model? What breaks first at scale? How does the ML
-              component integrate without becoming a single point of failure? The
-              Agroassist project that got to 94% accuracy started as a
-              schema design exercise — the model came later, built on top of a
-              foundation that could actually support it.
+              <strong>What I Do:</strong> I design and build scalable backend systems that 
+              integrate machine learning. I care about database design, API architecture, 
+              and how systems perform under load—not just model accuracy.
             </p>
 
             <p className={styles.bioText}>
-              Outside of engineering: cricket (watching and playing), music, and
-              long walks that occasionally produce good ideas. Rarely in that
-              order.
+              <strong>My Approach:</strong> Every project starts with the fundamentals: 
+              What&apos;s the right data structure? How will this scale? Can the system 
+              handle failures gracefully? My Agroassist project achieving 94% accuracy 
+              started with solid database design—the ML model came after the foundation 
+              was ready.
             </p>
 
-            {/* Small inline divider with annotation */}
-            <p className={`${styles.note} annotation`} aria-hidden="true">
-              // currently: 3rd year · open to internships · backend / systems roles
+            <p className={styles.bioText}>
+              <strong>Beyond Coding:</strong> When I&apos;m not programming, you&apos;ll 
+              find me playing cricket, listening to music, or taking long walks that 
+              sometimes lead to breakthrough ideas.
             </p>
+
+            {/* Clear status indicator */}
+            <div className={styles.statusBanner}>
+              <span className={styles.statusDot}>●</span>
+              <strong>Currently seeking internships</strong> in Backend Development & Systems Engineering
+            </div>
           </div>
 
-          {/* Right: annotation margin column */}
-          <aside className={styles.marginCol} aria-label="Profile annotations">
-            <dl className={styles.annotList}>
-              <div className={styles.annotItem}>
-                <dt className={`${styles.annotLabel} annotation`}>Institute</dt>
-                <dd className={`${styles.annotValue} annotation`}>VIT Pune</dd>
-              </div>
-              <div className={styles.annotItem}>
-                <dt className={`${styles.annotLabel} annotation`}>Program</dt>
-                <dd className={`${styles.annotValue} annotation`}>B.Tech CSE(AI &amp; ML)</dd>
-              </div>
-              <div className={styles.annotItem}>
-                <dt className={`${styles.annotLabel} annotation`}>Batch</dt>
-                <dd className={`${styles.annotValue} annotation annotation--copper`}>Class of 2028</dd>
-              </div>
-              <div className={styles.annotItem}>
-                <dt className={`${styles.annotLabel} annotation`}>Location</dt>
-                <dd className={`${styles.annotValue} annotation`}>Pune, IN</dd>
-              </div>
-              <div className={styles.annotItem}>
-                <dt className={`${styles.annotLabel} annotation`}>Hackathons</dt>
-                <dd className={`${styles.annotValue} annotation annotation--copper`}>3×</dd>
-              </div>
-              <div className={styles.annotItem}>
-                <dt className={`${styles.annotLabel} annotation`}>Focus</dt>
-                <dd className={`${styles.annotValue} annotation`}>Backend · Systems · ML</dd>
-              </div>
-              <div className={styles.annotItem}>
-                <dt className={`${styles.annotLabel} annotation`}>Off-hours</dt>
-                <dd className={`${styles.annotValue} annotation`}>Cricket · Music · Walks</dd>
-              </div>
-            </dl>
+          {/* Right: at-a-glance info cards */}
+          <aside className={styles.marginCol} aria-label="Profile snapshot">
+            <div className={styles.infoCard}>
+              <h3 className={styles.infoCardTitle}>📚 Education</h3>
+              <p><strong>VIT Pune</strong></p>
+              <p>B.Tech in AI & ML</p>
+              <p>Class of 2028</p>
+            </div>
+
+            <div className={styles.infoCard}>
+              <h3 className={styles.infoCardTitle}>💼 Skills</h3>
+              <p>• Backend Development</p>
+              <p>• System Architecture</p>
+              <p>• Database Design</p>
+              <p>• ML Integration</p>
+              <p>• API Development</p>
+            </div>
+
+            <div className={styles.infoCard}>
+              <h3 className={styles.infoCardTitle}>🏆 Achievements</h3>
+              <p><strong>3× Hackathon Winner</strong></p>
+              <p>Multiple Projects</p>
+              <p>94% ML Accuracy</p>
+            </div>
+
+            <div className={styles.infoCard}>
+              <h3 className={styles.infoCardTitle}>📍 Location</h3>
+              <p>Pune, India</p>
+            </div>
           </aside>
 
         </div>
