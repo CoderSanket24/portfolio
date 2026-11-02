@@ -1,0 +1,36 @@
+.techStack {
+  width: 100%;
+  padding: 48px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+}
+
+.techTag {
+  color: #9ca3af;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .techStack {
+    padding: 32px 16px;
+  }
+
+  .techTags {
+    gap: 16px;
+  }
+
+  .techTag {
+    font-size: 14px;
+  }
+}

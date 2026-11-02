@@ -1,103 +1,107 @@
 .section {
-  padding: var(--space-16) var(--space-8);
-  background: var(--surface);
-  border-top: 1px solid var(--steel-faint);
+  padding: 80px 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
 }
 
 .inner {
-  max-width: 1200px;
+  max-width: 1126px;
   margin: 0 auto;
+  padding: 0 48px;
 }
 
-/* ── Two-column grid ─────────────────────────────────────────── */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
+  gap: 64px;
   align-items: start;
 }
 
-/* ── Left ────────────────────────────────────────────────────── */
 .heading {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-bottom: var(--space-4);
+  font-size: 40px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 24px;
   line-height: 1.2;
+  text-align: left;
 }
 
 .body {
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.7;
-  color: var(--steel);
+  color: #9ca3af;
   max-width: 400px;
+  text-align: left;
 }
 
-/* ── Right: link groups ──────────────────────────────────────── */
+/* Links */
 .links {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
-  padding-top: var(--space-2);
+  gap: 32px;
 }
 
 .linkGroup {
-  border-left: 2px solid var(--steel-faint);
-  padding-left: var(--space-4);
+  border-left: 2px solid var(--border);
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 8px;
 }
 
 .linkLabel {
-  /* All-caps navigational label — 13px eyebrow exception */
-  font-size: 0.8125rem;
+  font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--steel-dark); /* darkened: small all-caps text needs more contrast */
+  color: #9ca3af;
 }
 
 .link {
-  font-family: var(--font-head);
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 500;
-  color: var(--ink);
-  border-bottom: 1px solid transparent;
-  display: inline-block;
-  padding-bottom: 1px;
-  transition: color var(--transition-fast), border-color var(--transition-fast);
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.link:hover,
-.link:focus-visible {
-  color: var(--copper);
-  border-bottom-color: var(--copper);
-  outline: none;
+.link:hover {
+  color: #ff6b6b;
 }
 
 .linkHandle {
-  color: var(--copper);
+  color: #ff6b6b;
 }
 
-.placeholder {
-  font-family: var(--font-head);
-  font-size: 0.9375rem; /* 15px — raised; steel-dark for contrast */
-  color: var(--steel-dark);
-  opacity: 0.6;
-  font-style: italic;
+.placeholder a {
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* ── Responsive ─────────────────────────────────────────────── */
+.placeholder a:hover {
+  color: #ff6b6b;
+}
+
 @media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .inner {
+    padding: 0 24px;
+  }
+
   .grid {
     grid-template-columns: 1fr;
-    gap: var(--space-10);
+    gap: 48px;
   }
-}
 
-@media (max-width: 600px) {
-  .section {
-    padding: var(--space-12) var(--space-4);
+  .heading {
+    font-size: 32px;
+  }
+
+  .body {
+    font-size: 14px;
   }
 }

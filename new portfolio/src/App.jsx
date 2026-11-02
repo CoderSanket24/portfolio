@@ -2,9 +2,9 @@ import { useState, useCallback } from 'react';
 import SkipLink from './components/SkipLink/SkipLink';
 import Nav from './components/Nav/Nav';
 import Hero from './components/Hero/Hero';
+import TechStack from './components/TechStack/TechStack';
+import Services from './components/Services/Services';
 import About from './components/About/About';
-import SkillsWorkbench from './components/SkillsWorkbench/SkillsWorkbench';
-import Achievements from './components/Achievements/Achievements';
 import ProjectCaseStudy from './components/ProjectCaseStudy/ProjectCaseStudy';
 import ProjectCard from './components/ProjectCard/ProjectCard';
 import ProjectModal from './components/ProjectModal/ProjectModal';
@@ -43,14 +43,14 @@ export default function App() {
         {/* § 00 — Hero */}
         <Hero />
 
-        {/* § 01 — About */}
+        {/* § 01 — Tech Stack */}
+        <TechStack />
+
+        {/* § 02 — Services */}
+        <Services />
+
+        {/* § 03 — About */}
         <About />
-
-        {/* § 02 — Achievements */}
-        <Achievements />
-
-        {/* § 03 — Workbenches (Skills) */}
-        <SkillsWorkbench />
 
         {/* § 04 — Work */}
         <section id="work" className={styles.workSection} aria-labelledby="work-heading">

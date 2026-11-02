@@ -1,22 +1,23 @@
-/* ── Work section wrapper ─────────────────────────────────────── */
+/* Work section wrapper */
 .workSection {
-  padding: var(--space-16) var(--space-8);
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 80px 0;
+  background: var(--bg);
 }
 
 .workInner {
-  max-width: 1100px;
+  max-width: 1126px;
+  margin: 0 auto;
+  padding: 0 48px;
 }
 
 .workHeading {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin-bottom: var(--space-3);
+  font-size: 40px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 16px;
   position: relative;
   display: inline-block;
+  text-align: left;
 }
 
 .workHeading::after {
@@ -26,55 +27,67 @@
   left: 0;
   width: 80px;
   height: 3px;
-  background: var(--copper);
+  background: #ff4757;
 }
 
 .workSubheading {
-  font-size: 0.9375rem;
-  color: var(--steel);
-  max-width: 480px;
+  font-size: 16px;
+  color: #9ca3af;
+  max-width: 600px;
   line-height: 1.6;
-  margin-bottom: var(--space-4);
+  margin-bottom: 48px;
+  text-align: left;
 }
 
-/* ── Case studies ─────────────────────────────────────────────── */
+/* Case studies */
 .caseStudies {
-  border-top: 2px solid var(--ink);
-  margin-top: var(--space-8);
+  border-top: 2px solid var(--border);
+  margin-top: 48px;
+  padding-top: 32px;
 }
 
-/* ── Secondary grid ───────────────────────────────────────────── */
+/* Secondary grid */
 .secondarySection {
-  margin-top: var(--space-16);
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--steel-faint);
+  margin-top: 80px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
 }
 
 .secondaryHeading {
-  font-family: var(--font-head);
-  font-size: 1rem;
+  font-size: 24px;
   font-weight: 600;
-  color: var(--steel);
-  letter-spacing: 0.02em;
-  margin-bottom: var(--space-6);
+  color: #ffffff;
+  margin-bottom: 32px;
+  text-align: left;
 }
 
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
+  gap: 24px;
 }
 
-/* ── Responsive ─────────────────────────────────────────────── */
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .projectGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .workSection {
-    padding: var(--space-12) var(--space-4);
+    padding: 60px 0;
+  }
+
+  .workInner {
+    padding: 0 24px;
+  }
+
+  .workHeading {
+    font-size: 32px;
+  }
+
+  .workSubheading {
+    font-size: 14px;
   }
 
   .projectGrid {

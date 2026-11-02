@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import styles from './Nav.module.css';
 
 const navLinks = [
+  { href: '#hero',     label: 'Home' },
   { href: '#about',    label: 'About' },
   { href: '#work',     label: 'Projects' },
-  { href: '#contact',  label: 'Contact' },
+  { href: '#contact',  label: 'Contacts' },
 ];
 
 export default function Nav() {
@@ -29,8 +30,7 @@ export default function Nav() {
       <div className={styles.inner}>
         {/* Site mark — left side */}
         <a href="#hero" className={styles.mark} aria-label="Sanket Botre — back to top">
-          <span className={styles.markInitials}>SB</span>
-          <span className={styles.markDot} aria-hidden="true" />
+          Sanket Botre
         </a>
 
         {/* Desktop link list */}
