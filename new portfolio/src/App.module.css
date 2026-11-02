@@ -10,11 +10,23 @@
 }
 
 .workHeading {
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin-bottom: var(--space-3);
+  position: relative;
+  display: inline-block;
+}
+
+.workHeading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--copper);
 }
 
 .workSubheading {

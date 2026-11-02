@@ -3,12 +3,8 @@
   top: 0;
   z-index: 100;
   background: var(--paper);
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid var(--steel-faint);
   transition: border-color var(--transition-fast);
-}
-
-.navScrolled {
-  border-bottom-color: var(--steel-faint);
 }
 
 .inner {

@@ -9,7 +9,7 @@
 }
 
 .heading {
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -38,20 +38,20 @@
 }
 
 .marker {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border: 2px solid var(--copper);
   background: var(--paper);
-  border-radius: 0; /* square — consistent with drafting look */
+  border-radius: 50%;
   flex-shrink: 0;
   position: relative;
   z-index: 1;
 }
 
 .line {
-  width: 1px;
+  width: 2px;
   flex: 1;
-  background: var(--steel-faint);
+  background: var(--copper);
   min-height: var(--space-12);
   margin: var(--space-2) 0;
 }
@@ -61,95 +61,38 @@
   padding-bottom: var(--space-12);
 }
 
-.entryHeader {
-  margin-bottom: var(--space-6);
+.iconContainer {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--steel-faint);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-4);
+  background: var(--surface);
 }
 
-.year {
-  display: block;
-  /* Caveat font: inherits 1.2rem (19.2px) from .annotation global class */
-  letter-spacing: 0.06em;
-  margin-bottom: var(--space-2);
+.icon {
+  width: 32px;
+  height: 32px;
+  color: var(--ink);
 }
 
-.eventTitle {
+.serviceTitle {
   font-family: var(--font-head);
-  font-size: clamp(1.1rem, 2vw, 1.375rem);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.015em;
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-3);
 }
 
-.org {
-  font-size: 0.9375rem; /* 15px — minimum for steel on --paper */
-  color: var(--steel-dark); /* darkened steel: better contrast at 15px */
-  margin-bottom: var(--space-2);
-}
-
-.place {
-  display: inline-block;
-  font-family: var(--font-head);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--copper);
-  border: 1px solid var(--copper);
-  border-radius: var(--radius-sm);
-  padding: 1px var(--space-2);
-}
-
-/* ── Case study blocks ───────────────────────────────────────── */
-.caseStudy {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  border-left: 2px solid var(--steel-faint);
-  padding-left: var(--space-6);
-}
-
-.caseBlock {}
-
-.caseLabel {
-  display: block;
-  /* Caveat font: inherits 1.2rem (19.2px) from .annotation global class */
-  /* All-caps + letter-spacing: eyebrow exception, but Caveat still needs size — don’t shrink */
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--steel-dark);
-  margin-bottom: var(--space-1);
-}
-
-.caseText {
-  font-size: 0.9375rem;
+.serviceDescription {
+  font-size: 1rem;
   line-height: 1.7;
-  color: var(--ink);
-  max-width: 640px;
-}
-
-/* ── Count-up (Effect #2) ────────────────────────────────────── */
-.countUp {
-  display: inline-flex;
-  align-items: baseline;
-  gap: var(--space-1);
-  margin-top: var(--space-3);
-}
-
-.countNum {
-  font-family: var(--font-head);
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 700;
-  color: var(--copper);
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-
-.countLabel {
-  font-family: var(--font-head);
-  font-size: 1.125rem; /* 18px — raised from 1rem to match weight of the number beside it */
-  font-weight: 500;
   color: var(--steel);
+  max-width: 640px;
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */
@@ -167,7 +110,13 @@
     padding-bottom: var(--space-8);
   }
 
-  .caseStudy {
-    padding-left: var(--space-3);
+  .iconContainer {
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
   }
 }

@@ -9,68 +9,58 @@ export default function Hero() {
         <div className={styles.content}>
 
           {/* Clear greeting */}
-          <p className={`${styles.pageMarker} annotation`} aria-hidden="true">
-            👋 Hi, I&apos;m
+          <p className={styles.greeting}>
+            Hello<span className={styles.orangeDot}>.</span>
+          </p>
+
+          <p className={styles.intro}>
+            I&apos;m Sanket Botre
           </p>
 
           <h1 className={styles.name}>
-            Sanket Botre
+            Software Developer
           </h1>
-
-          {/* Clear role statement */}
-          <p className={styles.role}>
-            <span className={styles.roleHighlight}>
-              Backend Engineer & AI Student
-            </span>
-          </p>
-
-          <p className={styles.positioning}>
-            I build scalable backend systems and integrate AI/ML solutions.
-            <br />
-            <strong>3rd Year B.Tech Student</strong> at VIT Pune studying AI & Machine Learning.
-            <br />
-            <strong>Open for internships</strong> in Backend Development & Systems Engineering.
-          </p>
 
           {/* Clear call-to-action buttons */}
           <div className={styles.actions}>
-            <a href="#work" className={styles.actionPrimary}>
-              See My Projects
+            <a href="#contact" className={styles.actionPrimary}>
+              Got a project?
             </a>
-            <a href="#contact" className={styles.actionSecondary}>
-              Contact Me
+            <a href="#work" className={styles.actionSecondary}>
+              My resume
             </a>
           </div>
         </div>
 
-        {/* Right: key highlights in plain language */}
-        <aside className={styles.annotations} aria-label="Quick facts">
-          <div className={styles.annotationBlock}>
-            <div className={styles.highlightCard}>
-              <strong className={styles.highlightTitle}>🎓 Education</strong>
-              <p className={styles.highlightText}>VIT Pune</p>
-              <p className={styles.highlightText}>AI & ML · Class of 2028</p>
+        {/* Right: profile image with decorative circle */}
+        <aside className={styles.imageSection} aria-label="Profile photo">
+          <div className={styles.imageContainer}>
+            <div className={styles.decorativeCircle} aria-hidden="true" />
+            <div className={styles.imagePlaceholder}>
+              {/* Placeholder for profile photo */}
+              <div className={styles.photoFrame}></div>
             </div>
-            
-            <div className={styles.highlightCard}>
-              <strong className={styles.highlightTitle}>💻 Focus Areas</strong>
-              <p className={styles.highlightText}>Backend Development</p>
-              <p className={styles.highlightText}>System Design</p>
-              <p className={styles.highlightText}>ML Integration</p>
-            </div>
-            
-            <div className={styles.highlightCard}>
-              <strong className={styles.highlightTitle}>🏆 Experience</strong>
-              <p className={styles.highlightText}>3× Hackathon Winner</p>
-              <p className={styles.highlightText}>Multiple Projects</p>
+            <div className={styles.geometricLines} aria-hidden="true">
+              <span className={styles.bracket}>{'<'}</span>
+              <span className={styles.bracket}>{'>'}</span>
             </div>
           </div>
         </aside>
 
       </div>
 
-      {/* Horizontal rule — drafting divider */}
-      <div className={styles.divider} aria-hidden="true" />
+      {/* Tech stack tags below hero */}
+      <div className={styles.techStack}>
+        <div className={styles.techTags}>
+          <span className={styles.techTag}>HTML5</span>
+          <span className={styles.techTag}>CSS</span>
+          <span className={styles.techTag}>Javascript</span>
+          <span className={styles.techTag}>Node.js</span>
+          <span className={styles.techTag}>React</span>
+          <span className={styles.techTag}>Git</span>
+          <span className={styles.techTag}>Github</span>
+        </div>
+      </div>
     </section>
   );
 }

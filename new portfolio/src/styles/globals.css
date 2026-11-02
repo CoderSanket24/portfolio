@@ -7,13 +7,13 @@
 
 /* ── Design Tokens ─────────────────────────────────────────── */
 :root {
-  --paper:       #2A2D32;   /* background — darker graph-paper charcoal */
-  --ink:         #E8E6E1;   /* primary text — warm off-white */
-  --steel:       #9BA3AB;   /* secondary text, borders, structural lines */
-  --steel-dark:  #B8BFC5;   /* lighter steel for better contrast on dark bg */
-  --copper:      #E8915B;   /* single accent — warmer copper/orange for dark theme */
-  --surface:     #353941;   /* card backgrounds — slightly lighter than paper */
-  --steel-faint: #9BA3AB33; /* hairline dividers, subtle borders */
+  --paper:       #1a2332;   /* background — dark navy from reference */
+  --ink:         #ffffff;   /* primary text — pure white */
+  --steel:       #9ca3af;   /* secondary text, borders, structural lines (light gray) */
+  --steel-dark:  #e5e7eb;   /* lighter steel for better contrast */
+  --copper:      #ff6b6b;   /* single accent — orange/coral from reference */
+  --surface:     #1e2a3a;   /* card backgrounds — slightly lighter navy */
+  --steel-faint: #2e3a4a;   /* hairline dividers, subtle borders (darker gray) */
 
   --font-head:   'Space Grotesk', system-ui, sans-serif;
   --font-body:   'Inter', system-ui, sans-serif;
